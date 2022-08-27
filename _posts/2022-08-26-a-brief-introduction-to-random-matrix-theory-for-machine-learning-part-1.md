@@ -9,8 +9,10 @@ tags:
 ---
 
 Modern machine learning algorithms are now commonly trained on huge datasets where the number of samples is proportional to the dimension of the feature space. However,
-traditional statistical tools such as the central limit theorem fail to capture the subtleties of such a high dimensional framework. We illustrate some of the traps caused by the 
-*curse of dimensionality*.
+traditional statistical tools such as the central limit theorem fail to capture the subtleties of such a high dimensional framework. This creates a disparity between theory in practice in machine learning.
+We illustrate some of the traps caused by the so-called *curse of dimensionality*.
+
+> *This blog series is inspired from the book “Random Matrix Methods for Machine Learning: When Theory Meets Applications” by Zhenyu Liao and Romain Couillet [[1]](#ref1).*
 
 ## Motivation
 Modern machine learning (ML) models are often trained using a large set of samples in a high-dimensional feature space. 
@@ -20,34 +22,55 @@ can collapse when applied to high-dimensional problems.
 This leaves an alarming gap between theory and practice in ML, which we illustrate by giving some examples below.
 
 #### Overparametrization
-It is common in deep learning to overparametrize neural networks [[1]](#ref1). This tendency can be attributed to a puzzling 'double-descent' phenomenon, 
-meaning that the performance of a model gets worse than gets better as we increase the number of parameters [[2]](#ref2). Empirically, multiple models 
-have exhibited strong generalization properties while being vastly overparametrized [[3]](#ref3). The scaling behaviour of such models goes against 
+Generally, data fitting methods heavily rely on some kind of bias-variance tradeoff. In this context, a model must be complex enough have the capacity of modeleling
+the underlying *true* function, but *simple enough* to retain good generalization properties. While the precise meaning of simple/complex enough can be somewhat vague, 
+one thing is certain: a model with as many parameter as we have observations is guaranteed to overfit. At least, that is what happens with, 
+say, basic polynomial fitting (see [Figure 2](#fig2)) and it seems to coroborated by traditional statistics analysis...
+
+| ![Illustration of Overparametrization](/images/intro-rmt-4-ml-part-1/overparametrization.gif) |
+|:--:|
+| *Figure 2: <a id="fig2"></a>* Least square polynomial fit with increasing degree. The base function (in <span style="color:blue">blue</span>) is $$p(x):= (x-0.75)^{3}-2\cdot (x-0.75)+ 1$$. The data points $$\{y_{i}\}_{i=1}^{20}$$ are noisy observations of the base functions, i.e. $$y_{i}=p(x_{i})+\epsilon_{i}$$ for white noise $$\epsilon_{i}\sim N(0,0.16)$$.|
+
+Surprinsingly, it is common in deep learning to overparametrize neural networks [[2]](#ref2). This tendency can be attributed to a puzzling *double-descent* phenomenon, 
+meaning that the performance of a model gets worse than gets better as we increase the number of parameters [[3]](#ref3). Empirically, multiple models 
+have exhibited strong generalization properties while being vastly overparametrized [[4]](#ref4). The scaling behaviour of such models goes against 
 traditional statistical analysis which indicates that this practice leads to overfitting.
 
 #### Pre-training
- It is now common to pre-train entire natural language processing (NLP) models [[4]](#ref4). 
- The common intuition for pre-training is that it embeds the model with an underlying structure that reduces the effective dimension. 
- Perhaps unintuitively, some study suggests that pre-trained models can have higher effective dimension but still generalize well due to 
- an improved eigenalignment [[5]](#ref5).
+It is now common to pre-train entire natural language processing (NLP) models [[5]](#ref5). 
+The common intuition for pre-training is that it embeds the model with an underlying structure that reduces the effective dimension. 
+Perhaps unintuitively, some study suggests that pre-trained models can have higher effective dimension but still generalize well due to 
+an improved eigenalignment [[6]](#ref6).
 
 #### Worst case complexity
 Machine learning models are often trained my minimizing some objective function using an optimization algorithm. The standard algorithmic complexities obtained 
 from worst-case scenarios can be uninformative, or even misleading, when considered in high-dimensional settings. A more informative concept is the average-case 
-complexity that dictates the expected complexity.
+complexity that dictates the expected complexity. See [[7]](#ref7) for more information.
 
 Those conundrums are due to the so-called *curse of dimensionality*.
 
 ## The Curse of Dimensionality
-In order to model the regime where $n$ and $d$ and propositional, we consider the asymptotic settings where
+We place ourselves in the regime where $n \propto d$ are large and proportional. Asymptotically, we assume that
 $n,d\rightarrow \infty$ with $\frac{d}{n}\rightarrow r\in\mathbb{R}_{>0}$. Under this framework, some aspects of fixed $d$
-analysis fall victim to the traps caused by the curse of dimensionality.
+analysis fall victim to the traps caused by the curse of dimensionality. We give a couple examples.
 
-### Example 1 : A Die with Many Sides
-Talk about how the distribution of the die...
+### Example 1 : A die with many (many) sides
+Let $$X_{i}\sim \mathcal{U}\{1,d\}$$ for all $$i\in \{1,...,n\}$$ represent $$n\in\mathbb{N}$$ rolling of a $$d$$ sided die. In most introductory to statistics course, we learn that the
+empirical mean $$\overline{X}$$ of $$\{X_{i}\}_{i=1}^{n}$$ converges (in distribution) to a normally distributed random variable. In particular, by Lindeberg–Lévy CLT, we have that
 
-### Example 2 : Norm Equivalence
-For instance, norms are no longer equivalent [[6]](#ref6). Consider a collection of normally distributed random vector 
+$$
+\overline{X} -\mathbb{E}X \xrightarrow[n\rightarrow \infty]{d} \mathcal{N}(0,n^{-1}\sqrt{\mathbb{V}X}).
+$$
+
+It is temping to say that, for large $n$, the empirical mean is concentrated around its mean. However, it is important to recall that $$\mathbb{V}X=\frac{d^{2}-1}{12}$$ actually 
+depends on $$d$$ in such a was that $$\mathbb{V}X = \mathcal{O}(d)$$ is of competing order in our regime with $$d\propto n$$. This prevents the concentration of the empirical mean.
+
+### Example 2 : Norm equivalence
+It is well known that all norms defined on a finite-dimensional vector space are equivalent. In particular, for any tuple of norms $$\|\cdot\|_{a}$$ and $$\|\cdot\|_{b}$$
+defined on $$\mathbb{C}^{d}$$, there exists two constants $$0<\underline{c}<\overline{c}<\infty$$ such that $$\underline{c}\|x\|_{a}\leq \|x\|_{b} \leq \overline{c}\|x\|_{a}$$ on 
+$$\mathbb{C}^{d}$$. Consequently, convergence in any norm is equivalent.
+
+Consider a collection of normally distributed random vector 
 $$\{\mathbf{x}_{i}\}_{i=1}^{N} \subset \mathbb{R}^{d}$$ such that $$\mathbf{x}_{i}\stackrel{i.i.d.}{\sim}\mathcal{N}(\mathbf{0},\mathbf{I}_{d})$$ for all
 $$i\in\{1,2,...,n\}$$. If the underlying distribution is hidden, we can form the *sample covariance matrix*
 
@@ -55,27 +78,19 @@ $$
 \mathbf{C} = \frac{1}{n}\sum_{i=1}^{n}\mathbf{x}_{i} \mathbf{x}_{i}^{T}
 $$
 
-to estimate the true covariance matrix. By the strong law of large number and a simple concentration of measure
-argument, it is clear that
+to estimate the true covariance matrix. 
 
-$$
-||\mathbf{C}-\mathbf{I}_{d}||_{\infty}\xrightarrow[n,d\rightarrow \infty]{a.s.} 0
-$$
+By the strong law of large number and a simple concentration of measure
+argument, it is clear that $$\|\mathbf{C}-\mathbf{I}_{d}\|_{\infty}\xrightarrow[n,d\rightarrow \infty]{a.s.} 0 $$ as long as $d$ is at most a polynomial function of $n$. 
+However, $\mathbf{C}$ is the sum of $n$ rank-one matrices and therefore
+has rank at most $n$. We must have $$\|\mathbf{C}-\mathbf{I}_{d}\|_{2} \not\xrightarrow[]{} 0 $$ as $n,d\rightarrow \infty$ with $r\in\mathbb{R}_{>1}$. 
 
-as long as $d$ is at most a polynomial function of $n$. However, $\mathbf{C}$ is the sum of $n$ rank-one matrices and therefore
-has rank at most $n$. We must have
+How is that possible? Well, the constants $$\underline{c}$$ and $$\overline{c}$$ actually depend on $$d$$. In our case, the relation is $$\|\cdot\|_{2}\leq \sqrt{d}\|\cdot\|_{\infty}$$
+(and in many cases $$\|\cdot\|_{2}\approx \sqrt{d}\|\cdot\|_{\infty}$$).
 
-$$
-||\mathbf{C}-\mathbf{I}_{d}|| \not\xrightarrow[]{} 0
-$$
-
-as $n,d\rightarrow \infty$ with $r\in\mathbb{R}_{>1}$, where $$||\cdot ||$$ denotes the \textit{spectral norm}. For multiple
-applications, we would like to obtain spectral information about $\mathbf{C}$, but this example illustrate that entriwise
-convergence does not imply convergence in spectral norm.
-
-### Example 3 : Binary Classification
-Now, let's consider a toy binary classification setup: We are given 
-- a set of samples $$\{x_{i}\}_{i=1}^{n}\subset \mathbb{R}^{d}$$ with normally distributed $$x_{i} \stackrel{i.i.d.}{\sim} \mathcal{N}(\frac{s_{i}\mu}{\sqrt{d}},I_{d})$$;
+### Example 3 : Binary classification
+Let's consider a toy binary classification setup: We are given 
+- a set of samples $$\{\mathbf{x}_{i}\}_{i=1}^{n}\subset \mathbb{R}^{d}$$ with normally distributed $$\mathbf{x}_{i} \stackrel{i.i.d.}{\sim} \mathcal{N}(\frac{s_{i}\mu}{\sqrt{d}},\mathbf{I}_{d})$$;
 - centered Bernoulli signals $$s_{i} \stackrel{i.i.d.}{\sim} 2 \cdot \mathrm{Bernoulli}\left(\frac{1}{2}\right)-1$$ and
 - signal strength $$\mu$$. 
 
@@ -83,49 +98,52 @@ A visual representation of the resulting dataset for $$d=2$$ is given in [Figure
 <a id="fig1"></a>
 
 
-| ![Representation of clusters for $$d=2$$](/images/curse_dimensionality.png) |
+| ![Representation of clusters for $$d=2$$](/images/intro-rmt-4-ml-part-1/curse_dimensionality.png) |
 |:--:|
-| *Figure 1: Comparison of properties of the dateset $$\{x_{i}\}_{i=1}^{500}$$ where $$\mu=3$$ for $$d=2$$ (first row) and $$d=500$$ (second row). (Left): $$\left([x_{i}]_{1},[x_{i}]_{2}\right)_{i=1}^{n}$$; (Middle): $$\left(i,\frac{1}{d}x_{i}^{T} x_{i}\right)_{i=2}^{n}$$; (Right): $$\left(i,\frac{1}{d}\|\|x_{i}-x_{1}\|\|^{2}\right)_{i=2}^{n}$$. The color attributed to $$x_{i}$$ depends on the canonical class given by the signal $$s_{i}$$.* |
+| *Figure 1: Comparison of properties of the dateset $$\{x_{i}\}_{i=1}^{500}$$ where $$\mu=3$$ for $$d=2$$ (first row) and $$d=500$$ (second row). (Left): $$\left([x_{i}]_{1},[x_{i}]_{2}\right)_{i=1}^{n}$$; (Middle): $$\left(i,\frac{1}{d}x_{i}^{T} x_{i}\right)_{i=2}^{n}$$; (Right): $$\left(i,\frac{1}{d}\|x_{i}-x_{1}\|^{2}\right)_{i=2}^{n}$$. The color attributed to $$x_{i}$$ depends on the canonical class given by the signal $$s_{i}$$.* |
 
 When $$d=2$$, the samples cluster around two distinct centroids. Therefore, samples belonging to the same class are
 closer in the Euclidean sense and more align than samples from distinct classes. This can easily be verified, at least
 in expectation, as
 
 $$
-\mathbb{E}x_{i}^{T}x_{j} = \mu^{2}s_{i}s_{j}\quad\text{ and }\quad \mathbb{E}||x_{i} -x_{j}||^{2} = 2\left(
-d+\frac{\mu^{2}}{2}(s_{i}-s_{j})^{2}\right).
+\mathbb{E}\mathbf{x}_{i}^{T}\mathbf{x}_{j} = \mu^{2}s_{i}s_{j}
 $$
 
-for any $$i\neq j$$. Letting $$d$$ increase, the normalized inner product $$d^{-1}x_{i}^{T}x_{j}$$ and the normalized
-difference $$d^{-1}\|\|x_{i} -x_{j}\|\|^{2}$$ both converges, in expectation, to constants that are surprinsingly *class
+and
+
+$$
+\mathbb{E}||\mathbf{x}_{i} -\mathbf{x}_{j}||^{2} = 2\left(d+\frac{\mu^{2}}{2}(s_{i}-s_{j})^{2}\right).
+$$
+
+for any $$i\neq j$$. Letting $$d$$ increase, the normalized inner product $$d^{-1}\mathbf{x}_{i}^{T}\mathbf{x}_{j}$$ and the normalized
+difference $$d^{-1}\|\mathbf{x}_{i} -\mathbf{x}_{j}\|^{2}$$ both converges, in expectation, to constants that are surprinsingly *class
 independent*. Can we still use classification algorithms such as logistic regression and $$k$$-means clustering? Yes,
 but not because of traditional intuitive motivations based on sample-sample difference between functions of Euclidean
 distance or inner products. Instead, we rely on small contributions throughout a large number of data to have an
 accumulated effect.
 
 ## A Blessing in Disguise
-We illustrated the shortcoming of traditional analysis when applied to modern settings where the number of samples is
-proportional to the number of features. Fortunately, the tools from \textit{random matrix theory (RMT)} proves to be
-more than capable in analyzing the behaviour of modern machine learning models.
+To summarize, modern machine learning models can have as many, if not more, parameters than training samples. In these settings, the curse of dimensionality forces us to rethink some
+concepts that we sometimes take for granted.
 
-## Summary
-A summary.......
+Fortnuately, we can use powerful tools from *random matrix theory* to analyze complex high-dimensional problem and maybe even bridge the aforementione gap between theory and practice in machine learning.
 
 ## References
-<a id="ref1"></a>[[1]] Chou, Hung-Hsu, Johannes Maly, and Holger Rauhut. “More Is Less: Inducing Sparsity via Overparameterization.” ArXiv:2112.11027, April 1, 2022. http://arxiv.org/abs/2112.11027.
 
-<a id="ref2"></a>[[2]] Nakkiran, Preetum, Gal Kaplun, Yamini Bansal, Tristan Yang, Boaz Barak, and Ilya Sutskever. “Deep Double Descent: Where Bigger Models and More Data Hurt.” ArXiv:1912.02292 [Cs, Stat], December 4, 2019. http://arxiv.org/abs/1912.02292.
+<a id="ref6"></a>[[1]] Liao, Zhenyu, and Romain Couillet. “Random Matrix Methods for Machine Learning: When Theory Meets Applications,” August 20, 2021. https://zhenyu-liao.github.io/book/.
 
-<a id="ref3"></a>[[3]] Zhang, Chiyuan, Samy Bengio, Moritz Hardt, Benjamin Recht, and Oriol Vinyals. “Understanding Deep Learning Requires Rethinking Generalization.” ArXiv:1611.03530 [Cs], February 26, 2017. http://arxiv.org/abs/1611.03530.
+<a id="ref1"></a>[[2]] Chou, Hung-Hsu, Johannes Maly, and Holger Rauhut. “More Is Less: Inducing Sparsity via Overparameterization.” ArXiv:2112.11027, April 1, 2022. http://arxiv.org/abs/2112.11027.
 
-<a id="ref4"></a>[[4]] Wang, Sinong, Madian Khabsa, and Hao Ma. “To Pretrain or Not to Pretrain: Examining the Benefits of Pretraining on Resource Rich Tasks.” ArXiv:2006.08671 [Cs, Stat], June 15, 2020. http://arxiv.org/abs/2006.08671.
+<a id="ref2"></a>[[3]] Nakkiran, Preetum, Gal Kaplun, Yamini Bansal, Tristan Yang, Boaz Barak, and Ilya Sutskever. “Deep Double Descent: Where Bigger Models and More Data Hurt.” ArXiv:1912.02292 [Cs, Stat], December 4, 2019. http://arxiv.org/abs/1912.02292.
 
-<a id="ref5"></a>[[5]] Wei, Alexander, Wei Hu, and Jacob Steinhardt. “More Than a Toy: Random Matrix Models Predict How Real-World Neural Representations Generalize.” ArXiv:2203.06176 [Cs, Stat], March 11, 2022. http://arxiv.org/abs/2203.06176.
+<a id="ref3"></a>[[4]] Zhang, Chiyuan, Samy Bengio, Moritz Hardt, Benjamin Recht, and Oriol Vinyals. “Understanding Deep Learning Requires Rethinking Generalization.” ArXiv:1611.03530 [Cs], February 26, 2017. http://arxiv.org/abs/1611.03530.
 
-<a id="ref6"></a>[[6]] Liao, Zhenyu, and Romain Couillet. “Random Matrix Methods for Machine Learning: When Theory Meets Applications,” August 20, 2021. https://zhenyu-liao.github.io/book/.
+<a id="ref4"></a>[[5]] Wang, Sinong, Madian Khabsa, and Hao Ma. “To Pretrain or Not to Pretrain: Examining the Benefits of Pretraining on Resource Rich Tasks.” ArXiv:2006.08671 [Cs, Stat], June 15, 2020. http://arxiv.org/abs/2006.08671.
 
+<a id="ref5"></a>[[6]] Wei, Alexander, Wei Hu, and Jacob Steinhardt. “More Than a Toy: Random Matrix Models Predict How Real-World Neural Representations Generalize.” ArXiv:2203.06176 [Cs, Stat], March 11, 2022. http://arxiv.org/abs/2203.06176.
 
-
+<a id="ref6"></a>[[7]] Paquette, Courtney, Bart van Merriënboer, Elliot Paquette, and Fabian Pedregosa. “Halting Time Is Predictable for Large Models: A Universality Property and Average-Case Analysis.” ArXiv:2006.04299 [Math, Stat], October 2, 2021. http://arxiv.org/abs/2006.04299.
 
 
 [1]: Chou, Hung-Hsu, Johannes Maly, and Holger Rauhut. “More Is Less: Inducing Sparsity via Overparameterization.” ArXiv:2112.11027, April 1, 2022. http://arxiv.org/abs/2112.11027.
