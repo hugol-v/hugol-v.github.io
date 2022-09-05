@@ -8,5 +8,5 @@ date: 2021-10-01
 location: "Montreal"
 ---
 
-Presentation of the article “Hessian Eigenspectra of More Realistic Nonlinear Models” by Liao
-and Mahoney.
+Presentated the article [“Hessian Eigenspectra of More Realistic Nonlinear Models” by Liao
+and Mahoney](https://arxiv-export3.library.cornell.edu/abs/2103.01519v2) at [the Montreal RMT-ML-OPT Seminar](https://elliotpaquette.github.io/rmtmloptseminar.html).

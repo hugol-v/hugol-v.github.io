@@ -9,46 +9,36 @@ redirect_from:
 
 {% include base_path %}
 
-Here is my *significantly abridged* (i.e. incomplete) CV. 
+Here is my *significantly abridged* (i.e. incomplete) CV.
+
 
 ## Education
+* **DEC in Computer Science and Mathematics**, *Champlain Regional College*, 2018
+  * Three appearances on Dean’s List and one appearance on Honours List.
 * **B.Sc. Joint Honours Mathematics and Computer Science**, *McGill University*, 2022
-* **M.Sc. Mathematics adn Statistics**, *McGill University*, 2023 (expected)
+  * Graduated with First Class Joint Honours.
+* **M.Sc. Mathematics and Statistics**, *McGill University*, 2023 (expected)
+  * Thesis subject TBD.
 
 
-## Work experience
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-## Skills
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
+<!--
 ## Publications
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
+-->
+
   
-## Talks
+## Presentations
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
   
-## Teaching
+## Teaching/Marking
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-## Service and leadership
-* Currently signed in to 43 different slack teams
+
+## Awards and Scholarships
+* ksnldclnsflknvfv
+
