@@ -8,7 +8,7 @@ tags:
   - High-dimensional
 ---
 
-Modern machine learning algorithms are now commonly trained on huge datasets where the number of samples is proportional to the dimension of the feature space. However,
+Modern machine learning models are now commonly trained on huge datasets where the number of samples is proportional to the dimension of the feature space. However,
 traditional statistical tools such as the central limit theorem fail to capture the subtleties of such a high dimensional framework. This creates a disparity between theory in practice in machine learning.
 We illustrate some of the traps caused by the so-called *curse of dimensionality*.
 

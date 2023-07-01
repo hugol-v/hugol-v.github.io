@@ -8,5 +8,6 @@ date: 2022-09-14
 location: "Montreal"
 ---
 
-Presentated the article [“More Than a Toy: Random Matrix Models Predict How
-Real-World Neural Representations Generalize” by Wei, Hu and Steinhardt](https://arxiv.org/abs/2203.06176) at [the Montreal RMT-ML-OPT Seminar](https://elliotpaquette.github.io/rmtmloptseminar.html).
+**Abstract**: How can we predict the generalization risk of overparametrized large-scale machine learning models? Even for simple but realistic regression problems, traditional theoretical analyses geared toward answering this question fail to capture some important qualitative behavior. Fortunately, the generalized cross validation (GCV) estimator can be used to accurately estimate the generalization risk. Based on the paper “More Than a Toy: Random Matrix Models Predict How Real-World Neural Representations Generalize” by Wei, Hu and Steinhardt, I will explain how the GCV predicts generalization risk while other common methods fail to do the same. If time permits, I will also state some implications of this result, notably on pretraining.
+
+**Reference**: https://arxiv.org/abs/2203.06176

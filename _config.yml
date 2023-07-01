@@ -57,7 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : &twitter "HugoLatourelle"
 facebook:
   username               :
   app_id                 :
@@ -85,7 +85,7 @@ author:
   bio              : "M.Sc. Student @ McGill University"
   location         : "Montreal"
   employer         : "Mila"
-  pubmed           :
+  pubmed           : 
   googlescholar    :
   email            : "hugo.latourelle-vigeant@mail.mcgill.ca"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
@@ -109,7 +109,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          :
+  twitter          : "@HugoLatourelle"
   vine             :
   weibo            :
   xing             :
