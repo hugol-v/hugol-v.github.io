@@ -35,7 +35,7 @@ I also delved into a related problem involving logistic regression, where the pr
 
 | <img src="/images/halting_time.gif" width="100%"> |
 |:-------------:|
-| The halting time of gradient descent applied to a random linear regression problem concentrates as the dimension of the input and the number of samples increases linearly. We also observe a universality phenomenon: the halting time does not depend on the distribution of the input. |
+| The halting time of gradient descent applied to a random linear regression problem becomes predictable as the dimension of the input and the number of samples increases linearly. We also observe a universality phenomenon: the halting time does not depend on the distribution of the input. |
 
 
 
