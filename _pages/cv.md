@@ -46,6 +46,8 @@ Here is an *abridged* version of my CV.
   * **First-class honours in Mathematics and Computer Science**, *McGill University*, 2022
 
 ## Services and Extra Curricular Activities
+  * *Organizer*
+    * Montreal RMT-ML-OPT seminar at McGill University (Fall 2023)
   * *Volunteer*
     * OPT workshop on Optimization for Machine Learning (NeurIPS 2021)
   * *Review committee*

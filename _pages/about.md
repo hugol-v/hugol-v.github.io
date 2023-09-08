@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my (new) academic website! I am currently pursuing a Master's degree in Mathematics and Statistics at [McGill University](https://www.mcgill.ca/), where I have the privilege of working under the co-supervision of [Professor Courtney Paquette](https://cypaquette.github.io/) and [Professor Elliot Paquette](https://elliotpaquette.github.io/). Prior to this, I earned my B.Sc. in Mathematics and Computer Science with First-Class Honours, also from McGill University.
+Welcome to my academic website! I am currently pursuing a Master's degree in Mathematics and Statistics at [McGill University](https://www.mcgill.ca/), where I have the privilege of working under the co-supervision of [Professor Courtney Paquette](https://cypaquette.github.io/) and [Professor Elliot Paquette](https://elliotpaquette.github.io/). Prior to this, I earned my B.Sc. in Mathematics and Computer Science with First-Class Honours, also from McGill University.
 
 My academic interests revolve around the fascinating realm of large random systems. Specifically, I find great enthusiasm in applying random matrix theory to unravel the reasons behind the exceptional performance of contemporary machine learning models trained on massive datasets. I also strive to understand their vulnerabilities, exploring situations in which they may encounter breakdowns. I have a strong inclination to explore diverse subjects and actively seek opportunities for collaborations. For a more detailed discussion, please refer to the "research" tab.
 

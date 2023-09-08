@@ -1,7 +1,7 @@
 ---
 title: "Illustrating High-Dimensional Limit Theorems for SGD via Examples"
 collection: talks
-type: "Seminar in machine learning, optimisation and random matrix theory"
+type: "Seminar in random matrix theory, machine learning and optimization"
 permalink: /talks/2023-03-29-limit-theorem-sgd
 venue: "McGill University"
 date: 2023-03-29

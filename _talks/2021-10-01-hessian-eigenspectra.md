@@ -1,7 +1,7 @@
 ---
 title: "Hessian Eigenspectra of G-GLMs"
 collection: talks
-type: "Seminar in machine learning, optimisation and random matrix theory"
+type: "Seminar in random matrix theory, machine learning and optimization"
 permalink: /talks/2021-10-01-undergrad-research-conference
 venue: "McGill University"
 date: 2021-10-01
