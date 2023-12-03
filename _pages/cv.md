@@ -11,15 +11,14 @@ redirect_from:
 
 Here is an *abridged* version of my CV.
 
-
 ## Education
-* **DEC in Computer Science and Mathematics**, *Champlain Regional College*, 2018
-  * Three appearances on Dean’s List and one appearance on Honours List.
+
+* **M.Sc. Mathematics and Statistics**, *McGill University*, 2024 (expected)
+  * Thesis topic: Matrix Dyson Equation for Correlated Linearizations and Test Error of Random Features Regression
+  * Co-supervised by Professor Courtney Paquette and Professor Elliot Paquette
 * **B.Sc. Joint Honours Mathematics and Computer Science**, *McGill University*, 2022
   * Graduated with First Class Joint Honours.
-* **M.Sc. Mathematics and Statistics**, *McGill University*, 2024 (expected)
-  * Thesis title TBD.
-
+* **DEC in Computer Science and Mathematics**, *Champlain Regional College*, 2018
 
 <!--
 ## Publications
@@ -28,33 +27,31 @@ Here is an *abridged* version of my CV.
   {% endfor %}</ul>
 -->
 
-  
 ## Presentations
-  <ul>{% for post in site.talks %}
+
+  <ul>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
   
 ## Teaching/Marking
-  <ul>{% for post in site.teaching %}
+
+  <ul>{% for post in site.teaching reversed %}
     {% include archive-single-teaching-cv.html %}
   {% endfor %}</ul>
 
 ## Awards and Scholarships
-  * **Major entrance scholarship in science**, *Hydro-Québec*, 2018
-  * **Undergraduate student research award**, *NSERC*, 2021
-  * **Supplement to the NSERC USRA**, *FRQNT*, 2021
-  * **First-class honours in Mathematics and Computer Science**, *McGill University*, 2022
+
+* **First-class honours in Mathematics and Computer Science**, *McGill University*, 2022
+* **Undergraduate student research award**, *NSERC*, 2021
+* **Major entrance scholarship in science**, *Hydro-Québec*, 2018
 
 ## Services and Extra Curricular Activities
-  * *Organizer*
-    * Montreal RMT-ML-OPT seminar at McGill University (Fall 2023)
-  * *Volunteer*
-    * OPT workshop on Optimization for Machine Learning (NeurIPS 2021)
-  * *Review committee*
-    * OPT workshop on Optimization for Machine Learning (NeurIPS 2022)
-    * Workshop on High-dimensional Learning Dynamics (ICML 2023)
-  * *Non-formal education*
-    * Introduction to Deep Learning with Python (McGill 2022)
-    * Princeton Machine Learning Theory Summer School (Princeton 2023)
 
-
+* *Organizer*
+  * Co-organizer for the Montreal RMT-ML-OPT seminar at McGill University (Fall 2023)
+* *Review*
+  * OPT Workshop on Optimization for Machine Learning (NeurIPS 2023)
+  * High-dimensional Learning Dynamics Workshop (ICML 2023)
+  * OPT Workshop on Optimization for Machine Learning (NeurIPS 2022)
+* *Volunteer*
+  * OPT Workshop on Optimization for Machine Learning (NeurIPS 2021)
