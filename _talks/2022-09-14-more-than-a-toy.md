@@ -2,6 +2,7 @@
 title: "Using Random Matrix Models to Predict How Real-World Neural Representations Generalize"
 collection: talks
 type: "Seminar in random matrix theory, machine learning and optimization"
+researchorreview: "review"
 permalink: /talks/2022-09-14-more-than-a-toy
 venue: "McGill University"
 date: 2022-09-14

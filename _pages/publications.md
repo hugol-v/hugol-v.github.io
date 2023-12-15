@@ -11,6 +11,10 @@ author_profile: true
 
 {% include base_path %}
 
+## Preprints
+
 {% for post in site.publications reversed %}
-  {% include archive-single.html %}
+  {% if post.type == "preprint" %}
+    {% include archive-single.html %}
+  {% endif %}
 {% endfor %}

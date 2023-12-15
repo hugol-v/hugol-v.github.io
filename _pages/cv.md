@@ -21,16 +21,29 @@ Here is an *abridged* version of my CV.
 * **DEC in Computer Science and Mathematics**, *Champlain Regional College*, 2018
 
 ## Publications
+
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
 ## Presentations
 
+### Research Presentations
+
   <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html %}
+    {% if post.researchorreview != "review" %}
+      {% include archive-single-talk-cv.html %}
+    {% endif %}
   {% endfor %}</ul>
-  
+
+### Litterature Reviews
+
+  <ul>{% for post in site.talks reversed %}
+    {% if post.researchorreview == "review" %}
+      {% include archive-single-talk-cv.html %}
+    {% endif %}
+  {% endfor %}</ul>
+
 ## Teaching/Marking
 
   <ul>{% for post in site.teaching reversed %}

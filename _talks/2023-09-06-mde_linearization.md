@@ -2,6 +2,7 @@
 title: "Matrix Dyson Equation for Linearizations"
 collection: talks
 type: "Seminar in random matrix theory, machine learning and optimization"
+researchorreview: "research"
 permalink: /talks/2023-09-06-mde_linearization
 venue: "McGill University"
 date: 2023-09-06
