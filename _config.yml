@@ -57,7 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter "HugoLatourelle"
+  username               : #&twitter "HugoLatourelle"
 facebook:
   username               :
   app_id                 :
@@ -85,10 +85,11 @@ author:
   bio              : "M.Sc. Student @ McGill University"
   location         : "Montreal"
   employer         : "Mila"
+  arxiv            : "https://arxiv.org/search/math?searchtype=author&query=Latourelle-Vigeant,+H"
   pubmed           : 
   googlescholar    :
   email            : "hugo.latourelle-vigeant@mail.mcgill.ca"
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
+  researchgate     : 
   uri              :
   bitbucket        :
   codepen          :
@@ -102,14 +103,14 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "hugo-latourelle-vigeant"
+  linkedin         : #"hugo-latourelle-vigeant"
   orcid            :
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "@HugoLatourelle"
+  twitter          : #"@HugoLatourelle"
   vine             :
   weibo            :
   xing             :

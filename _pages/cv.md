@@ -20,12 +20,10 @@ Here is an *abridged* version of my CV.
   * Graduated with First Class Joint Honours.
 * **DEC in Computer Science and Mathematics**, *Champlain Regional College*, 2018
 
-<!--
 ## Publications
-  <ul>{% for post in site.publications %}
+  <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
--->
 
 ## Presentations
 

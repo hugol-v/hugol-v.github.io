@@ -7,6 +7,7 @@ venue: "McGill University"
 year: "2022"
 location: "Montreal"
 term: "Fall"
+date: 2022-09-01
 ---
 
 Graded assignments for Honours Linear Optimization -- MATH 517, a graduate class at McGill university.

@@ -7,6 +7,7 @@ venue: "McGill University"
 year: "2023"
 location: "Montreal"
 term: "Winter"
+date: 2023-01-01
 ---
 
 In charge of two weekly tutorials where I went through exercises related to the class material. I also graded the midterm and the final and held weekly office hours.
