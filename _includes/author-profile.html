@@ -27,6 +27,9 @@
         <li><i class="fa fa-fw fa-map-marker fa-lg" aria-hidden="true"></i> {{ author.location }}</li>
       {% endif %}
       -->
+      {% if author.university %}
+        <li><i class="fa fa-fw fa-university fa-lg" aria-hidden="true"></i> {{ author.university }}</li>
+      {% endif %}
       {% if author.employer %}
         <li><i class="fa fa-fw fa-building fa-lg" aria-hidden="true"></i> {{ author.employer }}</li>
       {% endif %}
@@ -109,7 +112,7 @@
         <li><a href="https://vine.co/u/{{ author.vine }}"><i class="fab fa-fw fa-vine fa-lg" aria-hidden="true"></i> Vine</a></li>
       {% endif %}
       {% if author.googlescholar %}
-        <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap fa-lg"></i> Google Scholar</a></li>
+        <li><a href="{{ author.googlescholar }}"><i class="ai fa-fw ai-google-scholar ai-lg"></i> Google Scholar</a></li>
       {% endif %}
       {% if author.pubmed %}
         <li><a href="{{ author.pubmed }}"><i class="ai ai-pubmed-square ai-fw fa-lg"></i> PubMed</a></li>
