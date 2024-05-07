@@ -6,13 +6,14 @@ Label MAINTAINER Amir Pourmand
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     locales \
     imagemagick \
-    ruby-full \
     build-essential \
     zlib1g-dev \
     jupyter-nbconvert \
     inotify-tools procps && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
+# Install specific Ruby version
+RUN apt-get install -y ruby2.7 ruby2.7-dev
 
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
     locale-gen
