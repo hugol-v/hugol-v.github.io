@@ -2,31 +2,48 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Hugo Latourelle-Vigeant
     - name: Languages
-      value: English, German
+      value: English, French
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: Ph.D. Statistics and Data Science
+      institution: Yale University
+      location: Connecticut, USA
+      year: 2024-Present
+    - title: M.Sc. Mathematics and Statistics
+      institution: McGill University
+      location: Montreal, Canada
+      year: 2022-2024
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - "Master's Thesis: The matrix Dyson equation for machine learning: Correlated linearizations and the test error in random features regression"
+    - title: B.Sc. Joint Honours Mathematics and Computer Science
+      institution: McGill University
+      location: Montreal, Canada
+      year: 2018-2022
       description:
-        - Description 1.
-        - Description 2.
+        - Graduated with First Class Joint Honours
+
+- title: Work Experience
+  type: time_table
+  contents:
+    - title: Data Science Intern
+      institution: CDPQ
+      location: Montreal, Canada
+      year: 2024-Present
+      description:
+        - Internship in data science at CDPQ during the summer of 2024.
+
+- title: Publications
+  type: time_table
+  contents:
+    - title: "Matrix Dyson equation for correlated linearizations and test error of random features regression"
+      authors: "Hugo Latourelle-Vigeant, Elliot Paquette"
+      publisher: "Preprint: arXiv:2312.09194"
+      year: 2023
+      url: "https://arxiv.org/pdf/2312.09194"
 
 - title: Experience
   type: time_table

@@ -1,10 +1,10 @@
 <ul class="card-text font-weight-light list-group list-group-flush">
-  {% assign publications = data[1] | sort: 'releaseDate' | reverse %}
-  {% for content in publications %}
+  {% assign presentations = data[1] | sort: 'date' | reverse %}
+  {% for content in presentations %}
     <li class="list-group-item">
       <div class="row">
         <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px">
-          {% if content.releaseDate %} {% assign date = content.releaseDate | split: '-' | join: '.' %} {% else %} {% assign date = '' %} {% endif %}
+          {% if content.date %} {% assign date = content.date | split: '-' | join: '.' %} {% else %} {% assign date = '' %} {% endif %}
           <table class="table-cv">
             <tbody>
               <tr>
@@ -19,9 +19,8 @@
           <h6 class="title font-weight-bold ml-1 ml-md-4">
             <a href="{{ content.url }}">{{ content.name }}</a>
           </h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem"><em>{{ content.authors | join: ', ' }}</em></h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">{{ content.publisher }}</h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem"><strong>Abstract:</strong> {{ content.summary }}</h6>
+          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem"><em>{{ content.venue | join: ', ' }}</em></h6>
+          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem"><strong>Abstract:</strong> {{ content.summary | newline_to_br}}</h6>
         </div>
       </div>
     </li>

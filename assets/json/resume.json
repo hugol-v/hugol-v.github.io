@@ -1,200 +1,246 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Hugo Latourelle-Vigeant",
+    "label": "",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "",
+    "phone": "",
+    "url": "",
+    "summary": "",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "",
+      "postalCode": "",
+      "city": "",
+      "countryCode": "",
+      "region": ""
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "",
+        "username": "",
+        "url": ""
       }
     ]
   },
-  "work": [
-    {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
-    }
-  ],
-  "volunteer": [
-    {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
-    }
-  ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "institution": "Yale University",
+      "location": "Connecticut, USA",
+      "url": "https://statistics.yale.edu/",
+      "area": "",
+      "studyType": "Ph.D. Statistics and Data Science",
+      "startDate": "2024",
+      "endDate": "",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "McGill University",
+      "location": "Montreal, Canada",
+      "url": "https://www.mcgill.ca/mathstat/",
+      "area": "",
+      "studyType": "M.Sc. Mathematics and Statistics",
+      "startDate": "2022",
+      "endDate": "2024",
+      "score": "",
+      "courses": ["Master's Thesis: The matrix Dyson equation for machine learning: Correlated linearizations and the test error in random features regression"]
+    },
+    {
+      "institution": "McGill University",
+      "location": "Montreal, Canada",
+      "url": "https://www.mcgill.ca/",
+      "area": "",
+      "studyType": "B.Sc. Joint Honours Mathematics and Computer Science",
+      "startDate": "2018",
+      "endDate": "2022",
+      "score": "",
+      "courses": ["Graduated with First Class Joint Honours"]
     }
   ],
-  "awards": [
+  "work": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
-    }
-  ],
-  "certificates": [
-    {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
-    },
-    {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-tag"
-    },
-    {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-envelope"
-    },
-    {
-      "name": "Quantum Cryptography",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-hashtag"
-    },
-    {
-      "name": "Quantum Communication",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-calendar"
-    },
-    {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-clipboard-check"
+      "name": "CDPQ",
+      "location": "Montreal, Canada",
+      "position": "Data Science Intern",
+      "url": "https://www.cdpq.com/en",
+      "startDate": "2024",
+      "endDate": "",
+      "summary": "Internship  in data science at CDPQ during the summer of 2024.",
+      "highlights": []
     }
   ],
   "publications": [
     {
-      "name": "Zur Elektrody/namik bewegter Körper",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
+      "name": "Matrix Dyson equation for correlated linearizations and test error of random features regression",
+      "publisher": "Preprint: arXiv:2312.09194",
+      "releaseDate": "2023",
+      "authors": "Hugo Latourelle-Vigeant and Elliot Paquette",
+      "url": "https://arxiv.org/pdf/2312.09194",
+      "type": "Research",
+      "summary": "This paper develops some theory of the matrix Dyson equation (MDE) for correlated linearizations and uses it to solve a problem on asymptotic deterministic equivalent for the test error in random features regression. The theory developed for the correlated MDE includes existence-uniqueness, spectral support bounds, and stability properties of the MDE. This theory is new for constructing deterministic equivalents for pseudoresolvents of a class of correlated linear pencils. In the application, this theory is used to give a deterministic equivalent of the test error in random features ridge regression, in a proportional scaling regime, wherein we have conditioned on both training and test datasets."
+    }
+  ],
+  "presentations": [
+    {
+      "name": "Matrix Dyson Equation for Correlated Linearizations",
+      "date": "2023-12-03",
+      "url": "",
+      "venue": "The many facets of random matrix theory Workshop at Canadian Mathematical Society Winter Meeting",
+      "location": "Montreal, Canada",
+      "summary": "The exploration of large random matrices through asymptotic deterministic equivalents has been approached by a multitude of techniques. One approach employs the matrix Dyson equation to establish an asymptotic equivalence between a random resolvent and the solution of a matrix fixed point equation. Another, the linearization trick, has proven effective in studying rational functions of random matrices. This trick involves embedding a matrix expression into a larger random matrix, known as a linear matrix pencil, with a simplified correlation structure.\n\nIn this presentation, we introduce an extension of the matrix Dyson equation framework tailored specifically for linearizations. This extends previous work which has focused primarily on the case of pencils with blocks of canonical Wigner or Circular type. Within this framework, we derive an anisotropic global law for a broad class of pseudo-resolvents with general correlation structures. To highlight the practical implications of our framework, we apply it to a problem coming from machine learning. Specifically, we apply it to derive an exact asymptotic expression for the validation error of random features ridge regression and establish a general Gaussian equivalence result."
     },
     {
-      "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-03-18",
-      "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
-      "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
+      "name": "Matrix Dyson Equation for Linearizations",
+      "date": "2023-09-06",
+      "url": "",
+      "venue": "Seminar in random matrix theory, machine learning and optimization at McGill University",
+      "location": "Montreal, Canada",
+      "summary": "Random matrix theory has proved to be a valuable tool for understanding puzzling aspects of machine learning models. There are various methods in random matrix theory, each depending on different structural assumptions for the given problem. One of these methods essentially suggests that we can analyze the spectrum of a large random matrix by substituting the associated random resolvent with the solution of a deterministic fixed-point equation known as the matrix Dyson equation. In this talk, based on collaborative work with KC Tsiolis and Elliot Paquette, I will discuss the extension of the matrix Dyson equation framework to analyze rational expressions in random matrices using a linearization trick. I will also provide an illustrative example by applying our framework to study the test error of a random feature model."
     },
     {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
+      "name": "GD and Large Linear Regression: Concentration and Asymptotics for a Spiked Model",
+      "date": "2021-08-23",
+      "url": "",
+      "venue": "4th Undergraduate Student Research Conference at McGill University",
+      "location": "Montreal, Canada",
+      "summary": "Machine learning algorithms are often trained using a large set of samples in a high-dimensional feature space. The traditional methods that performed well for low-dimensional problems can run into several problems in analyzing such high-dimensional models. One difficulty is that the analysis can depend on the probability distribution of the inputs. However, we show that this is not the case for a model of large-scale spiked random least squares problem trained with gradient descent. In fact, we show and verify experimentally that the halting time exhibits a universality property: it is independent of the probability distribution of the inputs. Furthermore, we provide explicit asymptotic results and discuss the effect of various parameters on those asymptotics."
     }
   ],
-  "skills": [
+  "teaching": [
     {
-      "name": "Physics",
-      "level": "Master",
-      "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
-  ],
-  "languages": [
-    {
-      "language": "German",
-      "fluency": "Native speaker",
-      "icon": ""
+      "course": "Calculus 2 - MATH 141",
+      "location": "McGill University",
+      "position": "Teaching Assistant",
+      "semester": "Winter 2024",
+      "date": "2024-01",
+      "highlights": []
     },
     {
-      "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
-    }
-  ],
-  "interests": [
-    {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
-  ],
-  "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+      "course": "Convex Optimization - Math 463/563",
+      "location": "McGill University",
+      "position": "Graduate Course Assistant",
+      "semester": "Winter 2024",
+      "date": "2024-01",
+      "highlights": []
     },
     {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+      "course": "Calculus 2 - MATH 141",
+      "location": "McGill University",
+      "position": "Teaching Assistant",
+      "semester": "Winter 2023",
+      "date": "2023-01",
+      "highlights": []
+    },
+    {
+      "course": "Convex Optimization - Math 463/563",
+      "location": "McGill University",
+      "position": "Graduate Course Assistant",
+      "semester": "Winter 2023",
+      "date": "2023-01",
+      "highlights": []
+    },
+    {
+      "course": "Calculus 2 - MATH 141",
+      "location": "McGill University",
+      "position": "Teaching Assistant",
+      "semester": "Fall 2022",
+      "date": "2022-09",
+      "highlights": []
+    },
+    {
+      "course": "Numerical Optimization - Math 560",
+      "location": "McGill University",
+      "position": "Graduate Course Assistant",
+      "semester": "Fall 2022",
+      "date": "2022-09",
+      "highlights": []
+    },
+    {
+      "course": "Numerical Optimization - Math 560",
+      "location": "McGill University",
+      "position": "Undergraduate Course Assistant",
+      "semester": "Winter 2022",
+      "date": "2022-01",
+      "highlights": []
     }
   ],
-  "projects": [
+  "awards": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
+      "title": "First-class honours in Mathematics and Computer Science",
+      "date": "2022",
+      "awarder": "McGill University",
+      "url": "",
+      "summary": ""
+    },
+    {
+      "title": "Undergraduate student research award",
+      "date": "2021",
+      "awarder": "NSERC",
+      "url": "https://www.nserc-crsng.gc.ca/students-etudiants/ug-pc/usra-brpc_eng.asp",
+      "summary": "The NSERC Undergraduate Student Research Award is a competitive award granted by the Natural Sciences and Engineering Research Council of Canada (NSERC) on the basis of academic excellence and research potential to support a full-time undergraduate summer research project."
+    },
+    {
+      "title": "Major entrance scholarship in science",
+      "date": "2018",
+      "awarder": "Hydro-Québec",
+      "url": "",
+      "summary": ""
+    }
+  ],
+  "organizer": [
+    {
+      "name": "Montreal RMT-ML-OPT seminar at McGill University",
+      "url": "https://elliotpaquette.github.io/rmtmloptseminar.html",
+      "date": "Fall 2023"
+    }
+  ],
+  "reviewer": [
+    {
+      "conference": "NeurIPS",
+      "date": "2023",
+      "workshop": "OPT Workshop on Optimization for Machine Learning",
+      "url": "https://opt-ml.org/"
+    },
+    {
+      "conference": "ICML",
+      "date": "2023",
+      "workshop": "High-dimensional Learning Dynamics Workshop",
+      "url": "https://sites.google.com/view/hidimlearning23/home"
+    },
+    {
+      "conference": "NeurIPS",
+      "date": "2022",
+      "workshop": "OPT Workshop on Optimization for Machine Learning",
+      "url": "https://opt-ml.org/oldopt/opt22/"
+    }
+  ],
+  "litterature_review": [
+    {
+      "name": "Illustrating High-Dimensional Limit Theorems for SGD via Examples",
+      "date": "2023-04-29",
+      "type": "review",
+      "url": "",
+      "venue": "Seminar in random matrix theory, machine learning and optimization at McGill University",
+      "location": "Montreal, Canada",
+      "summary": "This presentation provides an overview of the article <a href='https://arxiv.org/pdf/2206.04030.pdf'>“High-Dimensional Limit Theorems for SGD: Effective Dynamics and Critical Scaling”</a> by Gérard Ben Arous, Reza Gheissari, and Aukosh Jagannath. The article investigates the behavior of Stochastic Gradient Descent (SGD) with constant step-size in high-dimensional settings. The authors demonstrate that the online stochastic gradient trajectory can be approximated by a system of stochastic differential equations (SDEs). To help illustrate the main concepts of the paper, I will go through examples of applying SGD to a spiked matrix PCA problem and a two-layer network for binary Gaussian mixture classification."
+    },
+    {
+      "name": "Using Random Matrix Models to Predict How Real-World Neural Representations Generalize",
+      "date": "2022-09-14",
+      "type": "review",
+      "url": "",
+      "venue": "Seminar in random matrix theory, machine learning and optimization at McGill University",
+      "location": "Montreal, Canada",
+      "summary": "How can we predict the generalization risk of overparametrized large-scale machine learning models? Even for simple but realistic regression problems, traditional theoretical analyses geared toward answering this question fail to capture some important qualitative behavior. Fortunately, the generalized cross validation (GCV) estimator can be used to accurately estimate the generalization risk. Based on the paper <a href='https://arxiv.org/abs/2203.06176'>“More Than a Toy: Random Matrix Models Predict How Real-World Neural Representations Generalize”</a> by Wei, Hu and Steinhardt, I will explain how the GCV predicts generalization risk while other common methods fail to do the same. If time permits, I will also state some implications of this result, notably on pretraining."
+    },
+    {
+      "name": "Hessian Eigenspectra of G-GLMs",
+      "date": "2021-10-01",
+      "type": "review",
+      "url": "",
+      "venue": "Seminar in random matrix theory, machine learning and optimization at McGill University",
+      "location": "Montreal, Canada",
+      "summary": "Hessian matrices are crucial to the study of optimization and machine learning algorithms. Based on <a href='https://arxiv.org/abs/2103.01519'>the work of Zhenyu Liao and Michael W. Mahoney</a>, I will present an exact asymptotic characterization of the Hessian eigenspectrum for a large family of statistical models in high dimensions. More precisely, I will introduce a limiting spectral measure theorem and discuss its implications."
     }
   ]
 }

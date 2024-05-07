@@ -17,9 +17,9 @@ group :jekyll_plugins do
     gem 'jekyll-toc'
     gem 'jekyll-twitter-plugin'
     gem 'jemoji'
-    #gem 'therubyracer'
+    gem 'therubyracer', platforms: :ruby
     gem 'unicode_utils'
-    gem 'webrick' 
+    gem 'webrick'
 end
 group :other_plugins do
     gem 'css_parser'
