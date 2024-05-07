@@ -17,10 +17,9 @@ group :jekyll_plugins do
     gem 'jekyll-toc'
     gem 'jekyll-twitter-plugin'
     gem 'jemoji'
-    gem 'mini_racer'
+    #gem 'therubyracer'
     gem 'unicode_utils'
-    gem 'webrick'
-    gem 'faraday', "< 0.16" 
+    gem 'webrick' 
 end
 group :other_plugins do
     gem 'css_parser'
