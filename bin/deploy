@@ -89,6 +89,11 @@ then
 fi
 git checkout -b $DEPLOY_BRANCH
 
+# Install the correct version of Bundler and update Bundler in Gemfile.lock
+gem install bundler:2.5.10
+bundle update --bundler
+
+# Install missing gems
 bundle install
 
 # Export JEKYLL_ENV=production
