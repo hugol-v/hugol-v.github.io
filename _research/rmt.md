@@ -7,7 +7,7 @@ importance: 1
 related_publications: false
 ---
 
-*How, and when, can we describe the asymptotic spectral information of random matrices? To what extent do random matrices depend on the distribution of their entries?*
+_How, and when, can we describe the asymptotic spectral information of random matrices? To what extent do random matrices depend on the distribution of their entries?_
 
 Random matrix theory is one of my main research interests. I am interested in a wide range of topics within the field, including the study of spiked models and phase transitions, universality phenomena and the application of random matrix theory to data science. I have explored a multitude of techniques within the field, such as leave-one-out approaches, leveraging free operator-valued theory, utilizing concentration inequalities, and using Stein’s method.
 

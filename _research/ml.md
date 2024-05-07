@@ -7,7 +7,7 @@ importance: 1
 related_publications: false
 ---
 
-*Why do highly over-parametrized deep neural networks exhibit exceptional generalization capabilities? Are neural networks sensitive to the distribution of their inputs?*
+_Why do highly over-parametrized deep neural networks exhibit exceptional generalization capabilities? Are neural networks sensitive to the distribution of their inputs?_
 
 I have found that random matrix theory offers valuable insights into studying the behavior of machine learning models and data science more generally. One avenue of exploration involves delving into the random features model. The random features model serves as a simplified model of two-layer neural networks, where we initialize the weights randomly and only train the second layer weights. Using the matrix Dyson equation, we can derive an explicit expression for the empirical test error of random feature ridge regression. This allows us to study phenomena such as the multiple descent phenomenon and implicit regularization. We can also establish a Gaussian equivalence theorem, which states that a random features model can be replaced by an equivalent Gaussian model with matching covariance. $$\delta$$
 

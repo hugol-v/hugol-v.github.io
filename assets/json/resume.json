@@ -43,7 +43,9 @@
       "startDate": "2022",
       "endDate": "2024",
       "score": "",
-      "courses": ["Master's Thesis: The matrix Dyson equation for machine learning: Correlated linearizations and the test error in random features regression"]
+      "courses": [
+        "Master's Thesis: The matrix Dyson equation for machine learning: Correlated linearizations and the test error in random features regression"
+      ]
     },
     {
       "institution": "McGill University",
