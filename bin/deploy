@@ -89,7 +89,7 @@ then
 fi
 git checkout -b $DEPLOY_BRANCH
 
-bundle exec jekyll build
+bundle install
 
 # Export JEKYLL_ENV=production
 export JEKYLL_ENV=production
