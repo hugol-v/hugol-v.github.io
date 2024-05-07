@@ -31,7 +31,8 @@ ADD Gemfile /srv/jekyll
 WORKDIR /srv/jekyll
 
 # install jekyll and dependencies
-RUN gem install jekyll bundler
+#RUN gem install jekyll bundler
+RUN gem install bundler:2.5.7 jekyll
 
 RUN bundle install --no-cache
 # && rm -rf /var/lib/gems/3.1.0/cache
