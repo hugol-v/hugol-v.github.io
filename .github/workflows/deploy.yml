@@ -52,7 +52,6 @@ permissions:
 
 jobs:
   deploy:
-    # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -62,6 +61,8 @@ jobs:
         with:
           ruby-version: "3.2.2"
           bundler-cache: true
+      - name: Install correct Bundler version
+        run: gem install bundler:2.5.10
       - name: Update _config.yml ⚙️
         uses: fjogeleit/yaml-update-action@main
         with:
