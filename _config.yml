@@ -5,8 +5,8 @@
 title: Hugo Latourelle-Vigeant # the website title (if blank, full name will be used instead)
 first_name: Hugo
 middle_name:
-last_name: Latouelle-Vigeant
-email: hugo.latourelle-vigeant@mail.mcgill.ca
+last_name: Latourelle-Vigeant
+email: hugo.latourelle-vigeant@yale.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Academic website of Hugo Latourelle-Vigeant
 footer_text:

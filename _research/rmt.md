@@ -11,7 +11,7 @@ related_publications: false
 
 Random matrix theory is one of my main research interests. I am interested in a wide range of topics within the field, including the study of spiked models and phase transitions, universality phenomena and the application of random matrix theory to data science. I have explored a multitude of techniques within the field, such as leave-one-out approaches, leveraging free operator-valued theory, utilizing concentration inequalities, and using Stein’s method.
 
-Currently, my focus lies in extending the framework of the matrix Dyson equation to account for correlated linearizations, also known as pencils, of random matrices. The objective is to derive anisotropic global laws for the pseudo-resolvent of linearizations with general correlation structure.
+During my master's degree, my focus was on extending the framework of the matrix Dyson equation to account for correlated linearizations, also known as pencils, of random matrices. The objective was to derive anisotropic global laws for the pseudo-resolvent of these linearizations with a general correlation structure.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
