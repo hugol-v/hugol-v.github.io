@@ -80,11 +80,11 @@
       "summary": "Extended the matrix Dyson equation framework to derive an anisotropic global law for pseudo-resolvents with general correlation structures. Applied this framework to provide an exact deterministic expression for the empirical test error in random features ridge regression, addressing aspects such as existence-uniqueness, spectral support bounds, and stability properties."
     },
     {
-      "name": "Matrix Dyson equation for correlated linearizations and test error of random features regression",
-      "publisher": "Preprint: arXiv:2312.09194",
-      "releaseDate": "2023",
+      "name": "Dyson Equation for Correlated Linearizations and Test Error of Random Features Regression",
+      "publisher": "Preprint: arXiv:2312.09194v2",
+      "releaseDate": "2024",
       "authors": "Hugo Latourelle-Vigeant and Elliot Paquette",
-      "url": "https://arxiv.org/pdf/2312.09194",
+      "url": "https://arxiv.org/pdf/2312.09194v2",
       "type": "Research",
       "summary": "Developed theory for the matrix Dyson equation for correlated linearizations, including existence-uniqueness, spectral support bounds, and stability properties, and applied this to derive a deterministic equivalent for the test error in random features ridge regression."
     }
@@ -204,6 +204,12 @@
     }
   ],
   "reviewer": [
+    {
+      "conference": "NeurIPS",
+      "date": "2024",
+      "workshop": "OPT Workshop on Optimization for Machine Learning",
+      "url": "https://opt-ml.org/"
+    },
     {
       "conference": "ICML",
       "date": "2024",
