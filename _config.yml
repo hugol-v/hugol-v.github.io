@@ -175,6 +175,9 @@ collections:
   research:
     output: true
     permalink: /research/:path/
+  misc:
+    output: true
+    permalink: /misc/:path/
     
 announcements:
   enabled: true
