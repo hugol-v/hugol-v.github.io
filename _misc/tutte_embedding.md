@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Tutte embedding
-description:
+description: An interactive visualization of Tutte's embedding algorithm for planar graphs.
 img: assets/img/tutte.png
 importance: 1
 related_publications: false
