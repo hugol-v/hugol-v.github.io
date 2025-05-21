@@ -3,6 +3,7 @@ layout: page
 title: "Note to self: Upper Half-Plane Fixed Point Theorems"
 description: Notes on versions of the Schwarz–Pick Lemma, Denjoy–Wolff Theorem and Complex Implicit Function Theorem in the upper half-plane, with a focus on their relevance to deterministic equivalents in random matrix theory.
 importance: 1
+img: assets/img/det_equiv_conv.png
 related_publications: false
 ---
 
