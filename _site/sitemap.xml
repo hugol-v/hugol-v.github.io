@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://localhost:4000/misc/schwarz-pick_denjoy-wolff/</loc>
+<lastmod>2025-05-22T15:52:33-04:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/misc/tutte_embedding/</loc>
-<lastmod>2025-03-17T14:49:28-04:00</lastmod>
+<lastmod>2025-05-22T15:52:33-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/news/princeton_summer_school_2023/</loc>
@@ -29,16 +33,20 @@
 <lastmod>2024-10-28T00:00:00-04:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/news/alumni_spotlight_champlain/</loc>
+<lastmod>2025-05-20T00:00:00-04:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/research/dynamics/</loc>
-<lastmod>2025-03-17T14:49:28-04:00</lastmod>
+<lastmod>2025-05-22T15:52:33-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/research/ml/</loc>
-<lastmod>2025-03-17T14:49:28-04:00</lastmod>
+<lastmod>2025-05-22T15:52:33-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/research/rmt/</loc>
-<lastmod>2025-03-17T14:49:28-04:00</lastmod>
+<lastmod>2025-05-22T15:52:33-04:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
@@ -66,6 +74,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/google48e9915d7e5ae9a7.html</loc>
-<lastmod>2024-10-28T22:12:50-04:00</lastmod>
+<lastmod>2025-03-17T14:49:41-04:00</lastmod>
 </url>
 </urlset>
