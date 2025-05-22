@@ -11,7 +11,7 @@ related_publications: false
 
 ---
 
-If you've spent any time with random matrix theory like I have recently you will almost certainly run into something called a *deterministic equivalent*. These often show up as functions mapping the upper half of the complex plane $$\mathbb{H} = \{ z \in \mathbb{C} : \mathrm{Im}(z) > 0 \}$$ into itself that solve some fixed-point equation.
+If you've spent any time with random matrix theory like I have recently you will almost certainly run into something called a *deterministic equivalent*. These often show up as functions mapping the upper half of the complex plane $$\mathbb{H} = \{ z \in \mathbb{C} : \mathrm{Im}(z) > 0 \}$$ into itself that (uniquely) solve some fixed-point equation.
 
 To give a concrete example, suppose we take a random matrix of the form $$X = C^{1/2} Z$$, where:
 
@@ -53,7 +53,7 @@ Nonetheless, we can still say some things about it. For example, we can show tha
 
 ---
 
-Before we state the Schwarz–Pick lemma for the Poincaré metric, we'll need a couple of definitions. Since I used it in my master's thesis, I will present a slightly more general metric called the *Carathéodory–Riffen–Finsler (CRF) pseudometric*. We refer to the original papers by Harris [^harris1] [^harris2] for a more detailed discussion of this metric and its properties.
+Before we state the Schwarz–Pick lemma for the Poincaré metric, we'll need a couple of definitions. I will present a slightly more general metric called the *Carathéodory–Riffen–Finsler (CRF) pseudometric*. We refer to the original papers by Harris [^harris1] [^harris2] for a more detailed discussion of this metric and its properties. What follows is adapted from my master's thesis.
 
 #### Definition
 
@@ -63,7 +63,7 @@ $$
 \alpha(x,v) = \sup \left\{ \|\mathrm{D}f(x)v\| \,\middle|\, f \in \mathrm{Hol}(D, \mathbb{D}) \right\}, \quad (x,v)\in D \times X,
 $$
 
-where $$\mathbb{D}$$ denotes the open complex unit disk of radius 1. The pseudometric $$\alpha$$ is an *infinitesimal Finsler pseudometric* on $$D$$, meaning that it is non-negative, lower semicontinuous, locally bounded, and satisfies
+where $$\mathbb{D}$$ denotes the open complex unit disk of radius 1 and $$\mathrm{Hol}(D, \mathbb{D})$$ is the set of holomorphic functions from $$D$$ to $$\mathbb{D}$$. The pseudometric $$\alpha$$ is an *infinitesimal Finsler pseudometric* on $$D$$, meaning that it is non-negative, lower semicontinuous, locally bounded, and satisfies
 
 $$
 \alpha(x, tv) = |t|\,\alpha(x, v)
@@ -83,7 +83,13 @@ $$
 \rho(x, y) = \inf \left\{ \mathcal{L}(\gamma) \,\middle|\, \gamma \in \Gamma,\, \gamma(0) = x,\, \gamma(1) = y \right\}, \quad (x,y) \in D^2.
 $$
 
-As the name suggests, $$\rho$$ is a pseudometric.
+As the name suggests, $$\rho$$ is generally a pseudometric. For instance, if we let $$X=D=\mathbb{C}$$, then any holomorphic function $$f : \mathbb{C} \to \mathbb{D}$$ is a constant function by Liouville's theorem. This means that the CRF pseudometric is identically zero on the whole complex plane. On the other hand, a sufficient condition for the CRF pseudometric to be a metric is that the domain $$D$$ is bounded, in which case it is possible to show that
+
+$$
+\rho(x, y) \geq \frac{1}{d} \|x - y\|_X
+$$
+
+where $$d$$ is the diameter of $$D$$. By extension, if there exists a biholomorphic map $$f : D_1 \to D_2$$ between two a domain $$D_1$$ and a bounded domain $$D_2$$, then the CRF pseudometric on $$D_1$$ is also a metric by biholomorphic invariance (which we discuss below). This will ensure that the CRF pseudometric is a metric in the cases of the unit disk and the upper half-plane for instance.
 
 #### Schwarz–Pick Lemma for the CRF Pseudometric
 
@@ -112,7 +118,51 @@ $$
 
 for all $$x, y \in D_1$$. In other words, the CRF pseudometric is *biholomorphically invariant* [^helton].
 
-There is also an infinitesimal version of the Schwarz–Pick lemma, which is just the derivative form of Proposition 1. We state it here for completeness.
+There is also an infinitesimal version of the Schwarz–Pick lemma, which is just the derivative form of Proposition 1. We state it here for completeness, but before we do so let us first highlight the relationship between the infinitesimal CRF pseudometric and the CRF pseudometric.
+
+Fix a point $$x \in D$$ and consider a the smooth curve $$\gamma(t) = x+tv$$ with tangent vector $$v$$ at $$t=0$$. We suppose that $$t$$ is small enough so that $$\gamma(s) \in D$$ for all $$s \in [0, t]$$. By definition of the CRF pseudometric,
+
+  $$
+    \rho(x, \gamma(t)) \leq  \int_0^{t}\alpha(\omega(s), \omega^\prime(s))\,\mathrm{d}s = \frac{1}{t}\int_0^{t}\alpha(\gamma(s), t\gamma^\prime(s))\,\mathrm{d}s = \int_0^{t}\alpha(\gamma(s), \gamma^\prime(s))\,\mathrm{d}s.
+  $$
+
+  Taking the limit as $$t \to 0^{+}$$,
+
+  $$
+    \lim_{t \to 0^{+}} \frac{\rho(x, \gamma(t))}{t} \leq \lim_{t \to 0^{+}}\int_0^{t}\alpha(\gamma(s), \gamma^\prime(s))\,\mathrm{d}s = \alpha(x, v).
+  $$
+
+  This gives us one direction of the inequality. For the other direction, let $$\epsilon > 0 $$ and choose $$f_0\in \mathrm{Hol}(D, \mathbb{D})$$ such that
+
+  $$
+  \|Df_0(x)v\| \geq \alpha(x, v) -\epsilon.
+  $$
+
+  Choose $$\delta > 0 $$ small enough sucht that $$\|f_0(x+tv) - f_0(x) - tDf_0(x)v\| < \epsilon t$$ whenever $$t\|v\| = \|x+tv - x\| < \delta$$. Then,
+
+  $$
+  |f_0(x+tv) - f_0(x)| \geq (\alpha(x, v) - 2\epsilon)t.
+  $$
+
+  By the integrated form of the Schwarz–Pick lemma (Proposition 1),
+
+  $$
+  \rho(x, x+tv) \geq \rho_{\mathbb{D}}(f_0(x), f_0(x+tv)) = (\alpha(x, v) - 2\epsilon)t + o(t)
+  $$
+
+  where we have used the explicit form of the Poincaré metric on the unit disk (see below). Dividing both sides by $$t$$ and taking the limit as $$t \to 0^{+}$$ gives us
+
+  $$
+  \lim_{t \to 0^{+}} \frac{\rho(x, x+tv)}{t} \geq \alpha(x, v) - 2\epsilon.
+  $$
+
+  Since $$\epsilon$$ is arbitrary, we conclude that the integrated form of the CRF pseudometric is related to the infinitesimal CRF pseudometric through the Schwarz–Pick lemma as
+
+  $$
+  \lim_{t \to 0^{+}} \frac{\rho(x, x+tv)}{t} = \alpha(x, v).
+  $$
+
+  We can now state the infinitesimal version of the Schwarz–Pick lemma.
 
 <div style="border: 1px solid #4695b8; padding: 1em; border-radius: 5px;">
   <strong>Proposition 2</strong>
@@ -128,16 +178,16 @@ There is also an infinitesimal version of the Schwarz–Pick lemma, which is jus
 
   <br>
 
-  We sketch how Proposition 2 follows from Proposition 1. Fix a point \(x \in D_1\) and consider a smooth curve \(\gamma(t)\) through \(x\) with tangent vector \(v = \gamma^\prime(0)\). Applying Proposition 1 to \(x\) and \(\gamma(t)\) leads to
+  Although Proposition 2 is usually proved first and implies Proposition 1, we sketch how Proposition 2 follows from Proposition 1. Applying Proposition 1 to \(x\) and \(\gamma(t)=x+tv\) gives us
 
   $$
   \rho_2(f(x), f(\gamma(t))) \leq \rho_1(x, \gamma(t)).
   $$
 
-  The infinitesimal CRF pseudometric is sometimes equivalently defined as
+  The infinitesimal CRF pseudometric is related to the CRF pseudometric through the limit
   
   $$
-    \alpha(x, v) = \lim_{t \to 0^{+}} \frac{\rho(x, \gamma(t))}{t}.
+    \alpha(x, v) = \lim_{t \to 0^{+}} \frac{\rho(x, x+tv)}{t}.
   $$
 
   Since \(f\circ \gamma\) is a curve in \(D_2\) through \(f(x)\) with tangent vector \(Df(x)v\) by the chain rule, we can apply the definition of the infinitesimal CRF pseudometric to get
@@ -286,11 +336,15 @@ Note that if $$g$$ is a Möbius automorphism of the unit disk, then the composit
 
 ---
 
+DO SKETCH OF PROOF FOR DENJOY WOLFF THEOREM
+
 In our random matrix example, for a fixed spectral parameter $$z \in \mathbb{H}$$, the solution is defined in terms of $$m(z) \in \mathbb{H}$$ which in turn is defined as the unique solution of a fixed-point equation
 
-$$F(m;z) \equiv m\left(1+\frac{1}{p} \mathrm{tr}\left(C (C m + zI)^{-1}\right)\right) = -1,$$
+$$F(m;z) \equiv m\left(1+\frac{1}{p} \mathrm{tr}\left(C (C m + zI)^{-1}\right)\right) = -1.$$
 
-For a fixed $$z \in \mathbb{H}$$, one may check that the function $$F(m;z)$$ is a holomorphic map from the upper half-plane $$\mathbb{H}$$ into itself. The Denjoy–Wolff theorem is a classical result in complex analysis that helps us understand the behavior of iterates of such maps. This theorem provides the basis for why $$m(z)$$ is well-defined and unique within $$\mathbb{H}$$.
+For a fixed $$z \in \mathbb{H}$$, one may check that the function $$F(m;z)$$ is a holomorphic map from the upper half-plane $$\mathbb{H}$$ into itself. There exists multiple fixed point theorems that could be used to show the existence of a unique solution $$m(z) \in \mathbb{H}$$ for the fixed-point equation $$F(m;z)=1$$ under various conditions. For instance, I like the Earle-Harris fixed point theorem[^earle], which states that strict holomorphic maps on domains of a Banach space are strict contractions with respect to the CRF pseudometric, and hence admits a unique fixed point. The fixed-point theorem by Khatskevich-Reich-Shoikhe is also noteworthy [^khatskevich]. It states that we do not necessarily need the map to be a strict, and that uniformly continuous extensions on the boundary of the domain and strict contraction on the boundary are sufficient to guarantee the existence of a unique fixed point.
+
+Here, I will instead present the *Denjoy–Wolff theorem*, a classical result in complex analysis that helps us understand the behavior of iterates of such maps. This theorem provides the basis for why $$m(z)$$ is well-defined and unique within $$\mathbb{H}$$.
 
 First, we state the theorem for the unit disk $$\mathbb{D}$$, for which a standard reference are Milnor [^milnor] and Carleson & Gamelin [^carleson_gamelin].
 
@@ -328,8 +382,6 @@ In the context of our fixed-point map $$G(m;z)$$ with $$G(m;z) = (1+\frac{1}{p} 
 ---
 
 The previous results give tools to show that the fixed-point equation $$F(m;z)=1$$ has a unique solution in the upper half-plane for each fixed $$z \in \mathbb{H}$$. However, we also need to show that this solution is analytic in the upper half-plane. To do so, we can use the *complex implicit function theorem*.
-
-
 
 <div style="border:1px solid #4695b8;padding:1em;border-radius:5px;">
   <strong>Proposition 6 (Complex Implicit Function Theorem)</strong>
@@ -401,3 +453,7 @@ For *Herglotz functions*, which are ubiquitous in random matrix theory, the non-
 [^carleson_gamelin]: L. Carleson and T. W. Gamelin. Complex Dynamics. Universitext, Springer-Verlag, 1993. (The Denjoy-Wolff theorem is typically discussed in chapters on iteration of analytic functions, e.g., Chapter II or III).
 
 [^paquette]: Paquette, E., Paquette, C., Xiao, L., & Pennington, J. (2025). 4+3 Phases of Compute-Optimal Neural Scaling Laws. arXiv. https://arxiv.org/abs/2405.15074
+
+[^earle]: C. J. Earle and R. S. Hamilton, A fixed point theorem for holomorphic mappings, Global Analysis (Proc. Sympos. Pure Math., Vol. XVI, Berkeley, Calif., (1968)), American Mathematical Society, Rhode Island, 1970, pp. 61–65.
+
+[^khatskevich]: A. Khatskevich, S. Reich, and D. Shoikhet, Fixed point theorems for holomorphic mappings and operator theory in indefinite metric spaces, Integral Equations Operator Theory 22 (1995), no. 3, 305–316.
