@@ -1,11 +1,29 @@
 ---
 layout: page
 title: "Note to self: Upper Half-Plane Fixed Point Theorems"
-description: Small set of notes on versions of the Schwarz–Pick Lemma, Denjoy–Wolff Theorem and Complex Implicit Function Theorem in the upper half-plane, with a focus on their relevance to deterministic equivalents in random matrix theory.
+description: Tools from complex analysis relevant to fixed-point equations in the upper half-plane, with applications to random matrix theory.
 importance: 1
 img: assets/img/det_equiv_conv.png
 related_publications: false
 ---
+
+### Table of Contents
+
+---
+
+- [Table of Contents](#table-of-contents)
+- [Motivation](#motivation)
+- [Carathéodory–Riffen–Finsler Pseudometric](#carathéodoryriffenfinsler-pseudometric)
+  - [Definition](#definition)
+  - [Schwarz–Pick Lemma for the CRF Pseudometric](#schwarzpick-lemma-for-the-crf-pseudometric)
+- [The Poincaré Metric](#the-poincaré-metric)
+  - [On the Unit Disk](#on-the-unit-disk)
+  - [On the Upper Half-Plane](#on-the-upper-half-plane)
+- [Fixed-Point Theorems](#fixed-point-theorems)
+  - [Denjoy–Wolff Theorem](#denjoywolff-theorem)
+- [Complex Implicit Function Theorem](#complex-implicit-function-theorem)
+- [Schwarz Reflection Principle](#schwarz-reflection-principle)
+- [References](#references)
 
 ### Motivation
 
@@ -332,28 +350,74 @@ Using the relationship between the Poincaré metric on the disk and the upper ha
 <div style="height:1em"></div>
 Note that if $$g$$ is a Möbius automorphism of the unit disk, then the composition $$f(z) = \phi(g(\phi^{-1}(z)))$$ is a Möbius automorphism of the upper half-plane and takes exactly the same form as above. Furthermore, we may obtain the differential form of the Schwarz–Pick lemma for a holomorphic function $$f$$ on the upper half-plane by defining $$\phi\circ f\circ \phi^{-1}$$ and using the chain rule as well as the infinitesimal version of the Schwarz–Pick lemma on the disk.
 
-### Denjoy–Wolff Theorem
+### Fixed-Point Theorems
 
 ---
 
-DO SKETCH OF PROOF FOR DENJOY WOLFF THEOREM
-
 In our random matrix example, for a fixed spectral parameter $$z \in \mathbb{H}$$, the solution is defined in terms of $$m(z) \in \mathbb{H}$$ which in turn is defined as the unique solution of a fixed-point equation
 
-$$F(m;z) \equiv m\left(1+\frac{1}{p} \mathrm{tr}\left(C (C m + zI)^{-1}\right)\right) = -1.$$
+$$F(m;z) := m\left(1+\frac{1}{p} \mathrm{tr}\left(C (C m + zI)^{-1}\right)\right) = -1,$$
 
-For a fixed $$z \in \mathbb{H}$$, one may check that the function $$F(m;z)$$ is a holomorphic map from the upper half-plane $$\mathbb{H}$$ into itself. There exists multiple fixed point theorems that could be used to show the existence of a unique solution $$m(z) \in \mathbb{H}$$ for the fixed-point equation $$F(m;z)=1$$ under various conditions. For instance, I like the Earle-Harris fixed point theorem[^earle], which states that strict holomorphic maps on domains of a Banach space are strict contractions with respect to the CRF pseudometric, and hence admits a unique fixed point. The fixed-point theorem by Khatskevich-Reich-Shoikhe is also noteworthy [^khatskevich]. It states that we do not necessarily need the map to be a strict, and that uniformly continuous extensions on the boundary of the domain and strict contraction on the boundary are sufficient to guarantee the existence of a unique fixed point.
+or, equivalently, as the solution of the (iterable) fixed-point map
+
+$$
+m = G(m;z) := -(1+\frac{1}{p} \mathrm{tr}(C (C m + zI)^{-1}))^{-1}.
+$$
+
+For a fixed $$z \in \mathbb{H}$$, one may check that the function $$G$$ is a holomorphic map from the upper half-plane $$\mathbb{H}$$ into itself.
+
+There exists multiple fixed point theorems that could be used to show the existence of a unique solution $$m(z) \in \mathbb{H}$$ for the fixed-point equation $$F(m;z)=1$$ under various conditions. For instance, I like the Earle-Harris fixed point theorem[^earle], which states that if $$f$$ is a holomorphic map from a domain $$D$$ in a complex Banach space into itself such that
+
+1. $$f(D)$$ is bounded in norm;
+2. $$f$$ is a strict contraction (i.e., there exists a constant $$\epsilon >0$$ such that for all $$x \in D$$ and $$y\notin D$$, we have $$\|f(x) - y\| \geq \epsilon$$);
+
+then there exists a unique fixed point in $$D$$. The proof of this theorem is based on the fact that such maps are strict contractions with respect to the CRF pseudometric (with uniform contraction constant) and hence we can apply the Banach fixed-point theorem.
+
+The fixed-point theorem by Khatskevich-Reich-Shoikhe is also noteworthy [^khatskevich]. It states that we do not necessarily need the map to be a strict, and that uniformly continuous extensions on the boundary of the domain and strict contraction on the boundary are sufficient to guarantee the existence of a unique fixed point.
 
 Here, I will instead present the *Denjoy–Wolff theorem*, a classical result in complex analysis that helps us understand the behavior of iterates of such maps. This theorem provides the basis for why $$m(z)$$ is well-defined and unique within $$\mathbb{H}$$.
 
-First, we state the theorem for the unit disk $$\mathbb{D}$$, for which a standard reference are Milnor [^milnor] and Carleson & Gamelin [^carleson_gamelin].
+#### Denjoy–Wolff Theorem
+
+First, we state the theorem for the unit disk $$\mathbb{D}$$, for which standard references are Milnor [^milnor] and Carleson & Gamelin [^carleson_gamelin].
 
 <div style="border: 1px solid #4695b8; padding: 1em; border-radius: 5px;">
   <strong>Proposition 4 (Denjoy–Wolff Theorem on the Disk)</strong>
   <span style="display:inline-block; width:0.5em;"></span>
-  Let \( g : \mathbb{D} \to \mathbb{D} \) be a holomorphic function and suppose that \(g(\mathbb{D})\) is a proper subset of \(\mathbb{D}\). Then, the sequence of iterates \(\{g^{\circ n}(w)\}\) converges for every \(w \in \mathbb{D}\) to a unique point \(w_0 \in \bar{\mathbb{D}}\). Furthermore, if \(w_0 \in \mathbb{D}\), then \(w_0\) is the unique fixed point of \(g\) in \(\mathbb{D}\).
+  Let \( f : \mathbb{D} \to \mathbb{D} \) be a holomorphic function and suppose that \(f(\mathbb{D})\) is a proper subset of \(\mathbb{D}\). Then, the sequence of iterates \(\{f^{\circ k}(w)\}\) converges for every \(w \in \mathbb{D}\) to a unique point \(w_0 \in \bar{\mathbb{D}}\). Furthermore, if \(w_0 \in \mathbb{D}\), then \(w_0\) is the unique fixed point of \(f\) in \(\mathbb{D}\).
 </div>
 <div style="height:1em"></div>
+
+<details style="border: 1px solid #4695b8; padding: 1em; border-radius: 5px;">
+  <summary><strong>Proof sketch</strong></summary>
+  <br>
+  Suppose that \(f\) admits a fixed point \(w_0 \in \mathbb{D}\). We may assume WLOG that \(w_0 = 0\) by composing with a Möbius automorphism of the disk. Fix \(w \in \mathbb{D}\) and consider the sequence of iterates \(f^{\circ k}(w)\). By the Schwarz–Pick lemma,
+
+  $$
+  \mathrm{arctanh}(|f^{\circ k}(w)|)  = \rho_{\mathbb{D}}(f^{\circ k}(w), f^{\circ k}(0)) \leq \rho_{\mathbb{D}}(w, 0) = \mathrm{arctanh}(|w|) < \infty.
+  $$
+
+  In fact, since the image of \(f\) is a proper subset of \(\mathbb{D}\), \(f\) is not an automorphism of the disk and the inequality is strict unless \(w=0\). Consider the sequence \(\alpha_n = |f^{\circ n}(w)|\). Then, \(\alpha_n) \in [0, 1)\) is a decreasing sequence, and hence it converges to some limit \(L \in [0, 1)\). By the rigidity of the Poincaré metric, if \(L\) is not equal to \(0\), then \(f\) must be an automorphism of the disk, which is a contradiction. Hence, we must have \(L=0\). 
+
+  <br><br>
+
+  On the other hand, suppose that \(f\) does not have a fixed point in \(\mathbb{D}\). By Montel's theorem, the collection \(\{f^{\circ k}\}_{k\geq 1}\) of holomorphic functions on the disk is normal, and hence each sequence has a further subsequence \(f^{\circ k_j}\) that converges uniformly on compact subsets of \(\mathbb{D}\) to a holomorphic function \(\gamma\). Passing to a further subsequence if necessary, we also suppose that the sequence \(f^{\circ(k_{j+1}-k_j)}\) converges to a limit \(\psi\) uniformly on compact subsets of \(\mathbb{D}\). By the continuity of \(g\), we have
+
+  $$
+  \gamma(w) = \lim_{j \to \infty} f^{\circ k_j}(w) = \lim_{j \to \infty} f^{\circ(k_{j+1}-k_j)}(f^{\circ k_j}(w)) = \psi(\gamma(w)).
+  $$
+
+  If \(\gamma\) is not constant, then it must be the case that \(\psi\) is the identity map on \(\mathbb{D}\). Hence, for \(\varphi=\lim_{j \to \infty} f^{\circ(k_{j+1}-k_j-1)}\), we have
+
+  $$
+  w = \psi(w) = \lim_{j \to \infty} f^{\circ(k_{j+1}-k_j)}(w) = \lim_{j \to \infty} f(f^{\circ(k_{j+1}-k_j-1)}(w)) = f(\varphi(w)) = \varphi(f(w)).
+  $$
+
+  This contradicts the fact that \(f\) is not an automorphism of the disk. Hence, every subsequence of \(f^{\circ k}\) converges to a constant function. Because we assumed that \(f\) does not have a fixed point in \(\mathbb{D}\), those constant must be on the boundary of the disk. By Wolff's lemma, there is a unique point \(w_0 \in \partial \mathbb{D}\) to which all iterates \(f^{\circ k}(w)\) converge, irrespective of the initial \(w \in \mathbb{D}\).
+
+</details>
+<div style="height:1em"></div>
+
 
 The limit point $$w_0$$ is called the *Denjoy–Wolff point* of $$g$$. We stated the proposition in a slightly different form than the standard one, basically using the fact that $$g$$ cannot be an automorphism of the disk since $$g(\mathbb{D})$$ is a proper subset of $$\mathbb{D}$$.
 
@@ -362,7 +426,7 @@ Using the Cayley transform, we can state the corresponding result for the upper 
 <div style="border: 1px solid #4695b8; padding: 1em; border-radius: 5px;">
   <strong>Corollary 5 (Denjoy–Wolff Theorem on the Upper Half-Plane)</strong>
   <span style="display:inline-block; width:0.5em;"></span>
-  Let \( f : \mathbb{H} \to \mathbb{H} \) be a holomorphic function and suppose that \(f(\mathbb{H})\) is a proper subset of \(\mathbb{H}\). Then, the sequence of iterates \(\{f^{\circ n}(z)\}\) converges for every \(z \in \mathbb{H}\) to a unique point \(\alpha \in \overline{\mathbb{H}}\). Furthermore, if \(\alpha \in \mathbb{H}\), then \(\alpha\) is the unique fixed point of \(f\) in \(\mathbb{H}\).
+  Let \( f : \mathbb{H} \to \mathbb{H} \) be a holomorphic function and suppose that \(f(\mathbb{H})\) is a proper subset of \(\mathbb{H}\). Then, the sequence of iterates \(\{f^{\circ k}(z)\}\) converges for every \(z \in \mathbb{H}\) to a unique point \(w_0 \in \overline{\mathbb{H}}\). Furthermore, if \(w_0 \in \mathbb{H}\), then \(w_0\) is the unique fixed point of \(f\) in \(\mathbb{H}\).
 </div>
 <div style="height:1em"></div>
 
@@ -371,22 +435,22 @@ Using the Cayley transform, we can state the corresponding result for the upper 
   <br>
   The result for the upper half-plane \(\mathbb{H}\) is derived from the unit disk \(\mathbb{D}\) version using a conformal map (the Cayley transform \(\phi\)). Let \(g : z \in \mathbb{D} \mapsto \phi(f(\phi^{-1}(z)))\) be a holomorphic conjugate map. Since \(f\) is not an automorphism of \(\mathbb{H}\), \(g\) is not an automorphism of \(\mathbb{D}\) either. 
   
-  Hence, by Proposition 4, the iterates \(g^n(w)\) converge to a Denjoy–Wolff point \(w_0 \in \overline{\mathbb{D}}\) for all \(w \in \mathbb{D}\). The iterates are related by \(\phi(f^{\circ n}(z)) = g^{\circ n}(\phi(z))\) for \(z \in \mathbb{H}\). Using the fact that \(\phi^{-1}\) is continuous, it follows that \(f^{\circ n}(z) = \phi^{-1}(g^{\circ n}(\phi(z)))\) converges to \(\phi^{-1}(w_0) \). The point \(\alpha\) is in \(\overline{\mathbb{H}}\) since \(w_0\) is in \(\overline{\mathbb{D}}\).
+  Hence, by Proposition 4, the iterates \(g^k(w)\) converge to a Denjoy–Wolff point \(w_0 \in \overline{\mathbb{D}}\) for all \(w \in \mathbb{D}\). The iterates are related by \(\phi(f^{\circ k}(z)) = g^{\circ k}(\phi(z))\) for \(z \in \mathbb{H}\). Using the fact that \(\phi^{-1}\) is continuous, it follows that \(f^{\circ k}(z) = \phi^{-1}(g^{\circ k}(\phi(z)))\) converges to \(\phi^{-1}(w_0) \). The point \(\phi^{-1}(w_0)\) is in \(\overline{\mathbb{H}}\) since \(w_0\) is in \(\overline{\mathbb{D}}\).
 </details>
 <div style="height:1em"></div>
 
-In the context of our fixed-point map $$G(m;z)$$ with $$G(m;z) = (1+\frac{1}{p} \mathrm{tr}(C (C m + zI)^{-1}))^{-1}$$, we can usually show that $$G(m;z)$$ is not an automorphism of the upper half-plane since $$G(m;z)$$ is a proper subset of $$\mathbb{H}$$. Hence, Corollary 5 applies, and we get that there exists a unique fixed point $$m(z) \in \mathbb{H}$$ for each fixed $$z \in \mathbb{H}$$ as long as we can show that the iterates $$G^{\circ n}(m)$$ does no converge to the boundary $$\partial\mathbb{H}$$.
+In the context of our fixed-point map $$G(m;z)$$, we hope to apply the Denjoy–Wolff theorem to show that the iterates $$G^{\circ n}(m)$$ converge to a unique point $$m(z) \in \mathbb{H}$$ for each fixed $$z \in \mathbb{H}$$. To do so, we need to check that the map $$G(m;z)$$ is a proper subset of $$\mathbb{H}$$, and then argue that the iterates do not converge to the boundary $$\partial\mathbb{H}$$. The general strategy also extends to more general objects, such as matrix valued Herglotz functions.
 
 ### Complex Implicit Function Theorem
 
 ---
 
-The previous results give tools to show that the fixed-point equation $$F(m;z)=1$$ has a unique solution in the upper half-plane for each fixed $$z \in \mathbb{H}$$. However, we also need to show that this solution is analytic in the upper half-plane. To do so, we can use the *complex implicit function theorem*.
+The previous results give tools to show that the fixed-point equation $$F(m;z)=-1$$ or $$G(m;z)=m$$ has a unique solution in the upper half-plane for each fixed $$z \in \mathbb{H}$$. However, we would like to know properties of the solution $$m(z)$$ as a function of the spectral parameter $$z$$. In particular, we want to show that the solution is holomorphic in the upper half-plane. To do so, we can use the *complex implicit function theorem*.
 
 <div style="border:1px solid #4695b8;padding:1em;border-radius:5px;">
   <strong>Proposition 6 (Complex Implicit Function Theorem)</strong>
   <span style="display:inline-block; width:0.5em;"></span>
-  Let \(\displaystyle U \subset \mathbb{C}^\alpha \times \mathbb{C}^\beta\) be open and \(G : U \to \mathbb{C}^\beta\) holomorphic in all variables. Assume \((x_0, y_0) \in U\) satisfies \(G(x_0, y_0) = 0\) and the Jacobian \(\partial_y G(x_0, y_0) \in \mathbb{C}^{\beta \times \beta}\) is invertible. Then there exist neighbourhoods \(V\) and \(W\) containing \(x_0\) and \(y_0\) respectively, and a unique holomorphic map \(h : V \to W\) such that
+  Let \(\displaystyle U \subset \mathbb{C}^a \times \mathbb{C}^b\) be open and \(G : U \to \mathbb{C}^b\) holomorphic in all variables. Assume that \((x_0, y_0) \in U\) satisfies \(G(x_0, y_0) = 0\) and the Jacobian \(\partial_y G(x_0, y_0) \in \mathbb{C}^{b \times b}\) is invertible. Then there exist neighbourhoods \(V\) and \(W\) containing \(x_0\) and \(y_0\) respectively, and a unique holomorphic map \(h : V \to W\) such that
 
   $$
   \left\{(x, h(x)) \in V \times W : G(x, h(x)) = 0\right\} = \{(x, y) \in V \times W : G(x, y) = 0\}.
@@ -395,25 +459,25 @@ The previous results give tools to show that the fixed-point equation $$F(m;z)=1
 </div>
 <div style="height:1em"></div>
 
-The proof follows from the holomorphic inverse-function theorem.
+The proof follows from the holomorphic inverse-function theorem, and we do not discuss it here.
 
-In our case, we want to apply the analytic implicit function theorem to the fixed-point equation $$F(m;z)=1$$. Taking the derivative with respect to $$m$$, we have
+In our case, we want to apply the analytic implicit function theorem to the fixed-point equation $$F(m;z)=-1$$. Taking the derivative with respect to $$m$$, we have
 
 $$
-\partial_m F(m;z) = \partial_m \frac{m}{G(m)} = \frac{G(m) - m \partial_m G(m)}{G(m)^2}. 
+\partial_m F(m;z) = -\partial_m \frac{m}{G(m)} = \frac{m \partial_m G(m)-G(m)}{G(m)^2}. 
 $$
 
 By the differential form of the Schwarz–Pick lemma on the upper half-plane, 
 
-$$|\partial_m G(m;z)| \leq \frac{\Im[G(m)]}{\mathrm{Im}(m)}.$$
+$$|\partial_m G(m)| \leq \frac{\Im[G(m)]}{\mathrm{Im}(m)}$$
 
-Hence, for $$z \in \mathbb{H}$$ fixed, if $$m(z)$$ is a solution of the fixed-point equation $$G(m(z);z)=m(z)$$, then 
+with strict inequality if $$G$$ is not a Möbius automorphism of the upper half-plane, which is the case here. Hence, for $$z_0 \in \mathbb{H}$$ fixed, if $$m_0$$ is a solution of the fixed-point equation $$G(m_0;z_0)=m_0$$, then 
 
-$$|\partial_m G(m;z)|<1$$ 
+$$|\partial_m G(m_0;z_0)|<1$$ 
 
-and consequently $$\partial_m F(m(z);z)\neq 0$$ in a sufficiently small neighbourhood of $$m(z)$$. This means, by the complex implicit function theorem, that there exists a unique holomorphic branch $$m(z)$$ in a neighbourhood of $$z$$ such that $$F(m(z);z)=0$$. The argument we just presented is adapted from a paper by Elliot Paquette, Courtney Paquette, Lechao Xiao and Jeffrey Pennington [^paquette].
+and consequently $$\partial_m F(m;z_0)\neq 0$$ in a sufficiently small neighbourhood of $$m_0$$. This means, by the complex implicit function theorem, that there exists a unique holomorphic function $$m(z)$$ on a neighbourhood of $$z_0$$ such that $$F(m(z);z)=0$$. The argument we just presented is adapted from a paper by Elliot Paquette, Courtney Paquette, Lechao Xiao and Jeffrey Pennington [^paquette].
 
-Since the upper half-plane is simply connected and there is a unique solution for every $$z \in \mathbb{H}$$, we can glue the local branches together to obtain a global holomorphic function $$m : \mathbb{H} \to \mathbb{H}$$ such that $$F(m(z);z)=0$$ for all $$z \in \mathbb{H}$$.
+Since the upper half-plane is simply connected and there is a unique solution for every fixed $$z \in \mathbb{H}$$, we can glue the local branches together to obtain a global holomorphic function $$m : \mathbb{H} \to \mathbb{H}$$ such that $$F(m(z);z)=0$$ for all $$z \in \mathbb{H}$$.
 
 ### Schwarz Reflection Principle
 
@@ -430,9 +494,9 @@ f(z) & \text{if } z \in \mathbb{H} \cup I \\
 \end{cases}
 $$
 
-is a holomorphic function on $$\mathbb{H} \cup I \cup -\mathbb{H}$$, where we defined by $f(z)=\lim_{t \to 0^+} f(z+it)$ for $$z \in I$$. This follows from the Schwarz reflection principle.
+is a holomorphic function on $$\mathbb{H} \cup I \cup -\mathbb{H}$$, where we defined by $$f(x)=\lim_{t \to 0^+} f(x+it)$$ for $$x \in I$$. This follows from the Schwarz reflection principle.
 
-For *Herglotz functions*, which are ubiquitous in random matrix theory, the non-tangential limits $$\lim_{t \to 0^+} f(x+it)$$ exist for almost every $$x \in \mathbb{R}$$.
+For *Herglotz functions*, which are ubiquitous in random matrix theory, the non-tangential limits $$\lim_{t \to 0^+} f(x+it)$$ exist for almost every $$x \in \mathbb{R}$$. When dealing with Stieljes transform of empirical spectral measures, the non-tangential limit is related to the density of the associated measure. In this case, real tangential limits in an open interval $$I$$ indicate that the spectral measure is supported away from $$I$$.
 
 ### References
 
