@@ -1,22 +1,17 @@
 ---
 layout: page
 title: "Note to self: Upper Half-Plane Fixed Point Theorems"
-description: Notes on versions of the Schwarz–Pick Lemma, Denjoy–Wolff Theorem and Complex Implicit Function Theorem in the upper half-plane, with a focus on their relevance to deterministic equivalents in random matrix theory.
+description: Small set of notes on versions of the Schwarz–Pick Lemma, Denjoy–Wolff Theorem and Complex Implicit Function Theorem in the upper half-plane, with a focus on their relevance to deterministic equivalents in random matrix theory.
 importance: 1
 img: assets/img/det_equiv_conv.png
 related_publications: false
 ---
 
-- Add image of equation in header
-- Add description of file
-- Add section numbers
-- Add plot
-
 ### Motivation
 
 ---
 
-If you've spent any time with random matrix theory like I have recently you will almost certainly run into something called a *deterministic equivalent*. These often show up as functions mapping the upper half of the complex plane $$\mathbb{H}$$ into itself that solve some fixed-point equation.
+If you've spent any time with random matrix theory like I have recently you will almost certainly run into something called a *deterministic equivalent*. These often show up as functions mapping the upper half of the complex plane $$\mathbb{H} = \{ z \in \mathbb{C} : \mathrm{Im}(z) > 0 \}$$ into itself that solve some fixed-point equation.
 
 To give a concrete example, suppose we take a random matrix of the form $$X = C^{1/2} Z$$, where:
 
@@ -239,7 +234,7 @@ Let us collect these results in a single proposition. We refer to standard refer
 
 #### On the Upper Half-Plane
 
-For our use case, we are working with holomorphic functions on the *upper half-plane* $$\mathbb{H} = \{ z \in \mathbb{C} : \mathrm{Im}(z) > 0 \}$$. In order to transfer the results from the unit disk to the upper half-plane, consider the *Cayley transform*
+For our use case, we are working with holomorphic functions on the upper half-plane. In order to transfer the results from the unit disk to the upper half-plane, consider the *Cayley transform*
 
 $$
 \phi : z\in\mathbb{H} \to \frac{z - i}{z + i} \in \mathbb{D}.
@@ -291,46 +286,101 @@ Note that if $$g$$ is a Möbius automorphism of the unit disk, then the composit
 
 ---
 
-Get a unique fixed point in the upper half-plane for fixed z
+In our random matrix example, for a fixed spectral parameter $$z \in \mathbb{H}$$, the solution is defined in terms of $$m(z) \in \mathbb{H}$$ which in turn is defined as the unique solution of a fixed-point equation
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+$$F(m;z) \equiv m\left(1+\frac{1}{p} \mathrm{tr}\left(C (C m + zI)^{-1}\right)\right) = -1,$$
+
+For a fixed $$z \in \mathbb{H}$$, one may check that the function $$F(m;z)$$ is a holomorphic map from the upper half-plane $$\mathbb{H}$$ into itself. The Denjoy–Wolff theorem is a classical result in complex analysis that helps us understand the behavior of iterates of such maps. This theorem provides the basis for why $$m(z)$$ is well-defined and unique within $$\mathbb{H}$$.
+
+First, we state the theorem for the unit disk $$\mathbb{D}$$, for which a standard reference are Milnor [^milnor] and Carleson & Gamelin [^carleson_gamelin].
+
+<div style="border: 1px solid #4695b8; padding: 1em; border-radius: 5px;">
+  <strong>Proposition 4 (Denjoy–Wolff Theorem on the Disk)</strong>
+  <span style="display:inline-block; width:0.5em;"></span>
+  Let \( g : \mathbb{D} \to \mathbb{D} \) be a holomorphic function and suppose that \(g(\mathbb{D})\) is a proper subset of \(\mathbb{D}\). Then, the sequence of iterates \(\{g^{\circ n}(w)\}\) converges for every \(w \in \mathbb{D}\) to a unique point \(w_0 \in \bar{\mathbb{D}}\). Furthermore, if \(w_0 \in \mathbb{D}\), then \(w_0\) is the unique fixed point of \(g\) in \(\mathbb{D}\).
+</div>
+<div style="height:1em"></div>
+
+The limit point $$w_0$$ is called the *Denjoy–Wolff point* of $$g$$. We stated the proposition in a slightly different form than the standard one, basically using the fact that $$g$$ cannot be an automorphism of the disk since $$g(\mathbb{D})$$ is a proper subset of $$\mathbb{D}$$.
+
+Using the Cayley transform, we can state the corresponding result for the upper half-plane.
+
+<div style="border: 1px solid #4695b8; padding: 1em; border-radius: 5px;">
+  <strong>Corollary 5 (Denjoy–Wolff Theorem on the Upper Half-Plane)</strong>
+  <span style="display:inline-block; width:0.5em;"></span>
+  Let \( f : \mathbb{H} \to \mathbb{H} \) be a holomorphic function and suppose that \(f(\mathbb{H})\) is a proper subset of \(\mathbb{H}\). Then, the sequence of iterates \(\{f^{\circ n}(z)\}\) converges for every \(z \in \mathbb{H}\) to a unique point \(\alpha \in \overline{\mathbb{H}}\). Furthermore, if \(\alpha \in \mathbb{H}\), then \(\alpha\) is the unique fixed point of \(f\) in \(\mathbb{H}\).
+</div>
+<div style="height:1em"></div>
+
+<details style="border: 1px solid #4695b8; padding: 1em; border-radius: 5px;">
+  <summary><strong>Proof sketch</strong></summary>
+  <br>
+  The result for the upper half-plane \(\mathbb{H}\) is derived from the unit disk \(\mathbb{D}\) version using a conformal map (the Cayley transform \(\phi\)). Let \(g : z \in \mathbb{D} \mapsto \phi(f(\phi^{-1}(z)))\) be a holomorphic conjugate map. Since \(f\) is not an automorphism of \(\mathbb{H}\), \(g\) is not an automorphism of \(\mathbb{D}\) either. 
+  
+  Hence, by Proposition 4, the iterates \(g^n(w)\) converge to a Denjoy–Wolff point \(w_0 \in \overline{\mathbb{D}}\) for all \(w \in \mathbb{D}\). The iterates are related by \(\phi(f^{\circ n}(z)) = g^{\circ n}(\phi(z))\) for \(z \in \mathbb{H}\). Using the fact that \(\phi^{-1}\) is continuous, it follows that \(f^{\circ n}(z) = \phi^{-1}(g^{\circ n}(\phi(z)))\) converges to \(\phi^{-1}(w_0) \). The point \(\alpha\) is in \(\overline{\mathbb{H}}\) since \(w_0\) is in \(\overline{\mathbb{D}}\).
+</details>
+<div style="height:1em"></div>
+
+In the context of our fixed-point map $$G(m;z)$$ with $$G(m;z) = (1+\frac{1}{p} \mathrm{tr}(C (C m + zI)^{-1}))^{-1}$$, we can usually show that $$G(m;z)$$ is not an automorphism of the upper half-plane since $$G(m;z)$$ is a proper subset of $$\mathbb{H}$$. Hence, Corollary 5 applies, and we get that there exists a unique fixed point $$m(z) \in \mathbb{H}$$ for each fixed $$z \in \mathbb{H}$$ as long as we can show that the iterates $$G^{\circ n}(m)$$ does no converge to the boundary $$\partial\mathbb{H}$$.
 
 ### Complex Implicit Function Theorem
 
-The previous results help us show that for z fixed, the fixed-point equation has a unique solution in the upper half-plane. To show that the solution is analytic in the upper half-plane, we can use the complex implicit function theorem. 
+---
 
-Talk about local branches and how we can glue them together to get a global solution.
+The previous results give tools to show that the fixed-point equation $$F(m;z)=1$$ has a unique solution in the upper half-plane for each fixed $$z \in \mathbb{H}$$. However, we also need to show that this solution is analytic in the upper half-plane. To do so, we can use the *complex implicit function theorem*.
+
+
+
+<div style="border:1px solid #4695b8;padding:1em;border-radius:5px;">
+  <strong>Proposition 6 (Complex Implicit Function Theorem)</strong>
+  <span style="display:inline-block; width:0.5em;"></span>
+  Let \(\displaystyle U \subset \mathbb{C}^\alpha \times \mathbb{C}^\beta\) be open and \(G : U \to \mathbb{C}^\beta\) holomorphic in all variables. Assume \((x_0, y_0) \in U\) satisfies \(G(x_0, y_0) = 0\) and the Jacobian \(\partial_y G(x_0, y_0) \in \mathbb{C}^{\beta \times \beta}\) is invertible. Then there exist neighbourhoods \(V\) and \(W\) containing \(x_0\) and \(y_0\) respectively, and a unique holomorphic map \(h : V \to W\) such that
+
+  $$
+  \left\{(x, h(x)) \in V \times W : G(x, h(x)) = 0\right\} = \{(x, y) \in V \times W : G(x, y) = 0\}.
+  $$
+
+</div>
+<div style="height:1em"></div>
+
+The proof follows from the holomorphic inverse-function theorem.
+
+In our case, we want to apply the analytic implicit function theorem to the fixed-point equation $$F(m;z)=1$$. Taking the derivative with respect to $$m$$, we have
+
+$$
+\partial_m F(m;z) = \partial_m \frac{m}{G(m)} = \frac{G(m) - m \partial_m G(m)}{G(m)^2}. 
+$$
+
+By the differential form of the Schwarz–Pick lemma on the upper half-plane, 
+
+$$|\partial_m G(m;z)| \leq \frac{\Im[G(m)]}{\mathrm{Im}(m)}.$$
+
+Hence, for $$z \in \mathbb{H}$$ fixed, if $$m(z)$$ is a solution of the fixed-point equation $$G(m(z);z)=m(z)$$, then 
+
+$$|\partial_m G(m;z)|<1$$ 
+
+and consequently $$\partial_m F(m(z);z)\neq 0$$ in a sufficiently small neighbourhood of $$m(z)$$. This means, by the complex implicit function theorem, that there exists a unique holomorphic branch $$m(z)$$ in a neighbourhood of $$z$$ such that $$F(m(z);z)=0$$. The argument we just presented is adapted from a paper by Elliot Paquette, Courtney Paquette, Lechao Xiao and Jeffrey Pennington [^paquette].
+
+Since the upper half-plane is simply connected and there is a unique solution for every $$z \in \mathbb{H}$$, we can glue the local branches together to obtain a global holomorphic function $$m : \mathbb{H} \to \mathbb{H}$$ such that $$F(m(z);z)=0$$ for all $$z \in \mathbb{H}$$.
 
 ### Schwarz Reflection Principle
 
-This gives us an analytic solutution in the upper half-plane. However, to take countour integral around eigenvalues or instance, we need to have a solution on the real line (where there are no eigenvalues) and in the lower half-plane.
+---
+
+The above gives us an analytic solution in the upper half-plane. However, in some cases, we may want to extend the solution to the lower half-plane and on part of the real line. This is important, for example, when we want to take contour integrals around some of the eigenvalues of the random matrix. This is where the *Schwarz reflection principle* comes into play.
+
+The Schwarz reflection principle states that if $$f$$ is a holomorphic function on the upper half-plane $$\mathbb{H}$$, and if $$f$$ extends continuously to an open interval $$I \subseteq \mathbb{R}$$ with $$f(I) \subseteq \mathbb{R}$$, then we can extend $$f$$ to the lower half-plane by reflection. In other words, the function
+
+$$
+\tilde{f}(z) = \begin{cases}
+f(z) & \text{if } z \in \mathbb{H} \cup I \\
+\overline{f(\overline{z})} & \text{if } z \in -\mathbb{H}
+\end{cases}
+$$
+
+is a holomorphic function on $$\mathbb{H} \cup I \cup -\mathbb{H}$$, where we defined by $f(z)=\lim_{t \to 0^+} f(z+it)$ for $$z \in I$$. This follows from the Schwarz reflection principle.
+
+For *Herglotz functions*, which are ubiquitous in random matrix theory, the non-tangential limits $$\lim_{t \to 0^+} f(x+it)$$ exist for almost every $$x \in \mathbb{R}$$.
 
 ### References
 
@@ -345,3 +395,9 @@ This gives us an analytic solutution in the upper half-plane. However, to take c
 [^helton]: J.W. Helton, S.A. McCullough, and V. Vinnikov. *Operator-valued Nevanlinna–Pick kernels and realization theory*. 2007.
 
 [^stein]: E. M. Stein and R. Shakarchi. *Complex Analysis*. Princeton Lectures in Analysis II, Princeton University Press, 2003.
+
+[^milnor]: J. Milnor. Dynamics in One Complex Variable. Annals of Mathematics Studies, Princeton University Press, 3rd edition, 2006. (See Appendix A: The Denjoy-Wolff Theorem)
+
+[^carleson_gamelin]: L. Carleson and T. W. Gamelin. Complex Dynamics. Universitext, Springer-Verlag, 1993. (The Denjoy-Wolff theorem is typically discussed in chapters on iteration of analytic functions, e.g., Chapter II or III).
+
+[^paquette]: Paquette, E., Paquette, C., Xiao, L., & Pennington, J. (2025). 4+3 Phases of Compute-Optimal Neural Scaling Laws. arXiv. https://arxiv.org/abs/2405.15074
