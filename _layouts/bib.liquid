@@ -193,6 +193,13 @@
           <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
         {% endif %}
       {% endif %}
+      {% if entry.article %}
+        {% if entry.article contains '://' %}
+          <a href="{{ entry.article }}" class="btn btn-sm z-depth-0" role="button">ARTICLE</a>
+        {% else %}
+          <a href="{{ entry.article | prepend: '/assets/article/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">ARTICLE</a>
+        {% endif %}
+      {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
           <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>

@@ -3,13 +3,13 @@ layout: page
 title: Dynamics of training
 description:
 img: assets/img/halting_time.gif
-importance: 1
+importance: 4
 related_publications: false
 ---
 
 *What the relation between properties of the data, such as its probability distribution and the presence of low-rank signals, and the behavior of optimization algorithm? What is the average-case complexity of optimization algorithm in the large-scale setting?*
 
-Given the high-dimensional nature of machine learning problems, it becomes essential to analyze the average case complexity of the algorithms employed in training neural networks. This is because the worst-case complexity is not necessarily representative of the expected behavior of certain large-scale algorithms. Additionally, using random matrix theory, we can study the effect of the distribution of the input on the training dynamics and establish universality phenomena. Furthermore, we can analyze how well an algorithm can use hidden signals in the data to improve training. This type of analysis holds practical significance, as it assists in selecting appropriate hyperparameters and provides insights into the computational time required for real-life applications. I have explored these topics in the context of gradient descent applied to random linear and logistic regression problems.
+In high-dimensional learning problems, optimization algorithms exhibit rich and sometimes unexpected behaviors. The interaction between data distribution, noise, and low-rank structure can strongly shape training trajectories, and random matrix methods help reveal universality phenomena that persist across models. For large problems, worst-case complexity often fails to capture typical behavior, and average-case analyses provide more relevant insight, especially when universality makes performance largely independent of fine distributional details. Beyond finding a minimizer, training can introduce inductive biases that improve generalization in over-parameterized models, and learning may unfold in a stage-wise or "staircase" manner, with relevant directions discovered sequentially.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
