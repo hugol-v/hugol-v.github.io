@@ -11,7 +11,7 @@ horizontal: false
 <blockquote>A system is deterministic only in the ways that it is explicitly prevented from being random
 <cite>- Principle of maximum entropy</cite></blockquote>
 
-I have a broad interest in various subjects within the realm of high-dimensional probability, statistics, optimization, and random matrix theory. Below, I provide a concise overview of some tightly interconnected research areas that I have delved into.
+I have a broad interest in various subjects within the realm of high-dimensional probability, statistics, machine learning, and random matrix theory. Below, I provide a concise overview of some tightly interconnected research areas that I am interested in.
 
 <!-- pages/research.md -->
 <div class="research">

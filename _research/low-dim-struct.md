@@ -1,17 +1,17 @@
 ---
 layout: page
-title: Latent Structure in High Dimensions
+title: Complexity of learning
 description:
 img: assets/img/multi_index_harmonic.gif
 importance: 1
 related_publications: false
 ---
 
-CHANGE ALL OF THIS!!!!!!!
+*When, and why, can we efficiently learn in high dimensions? What structural properties of data make learning computationally feasible?*
 
-*What the relation between properties of the data, such as its probability distribution and the presence of low-rank signals, and the behavior of optimization algorithm? What is the average-case complexity of optimization algorithm in the large-scale setting?*
+Modern data is often high-dimensional: language models work over massive vocabularies, and biological systems involve thousands of interacting components. Yet learning in these settings can be surprisingly effective. A possible explanation is the presence of latent low-dimensional structure. Although the ambient dimension is large, the true complexity of the data is often governed by hidden structure that lives in an essentially much smaller space. Exploiting this structure is key to efficient learning.
 
-In high-dimensional learning problems, optimization algorithms exhibit rich and sometimes unexpected behaviors. The interaction between data distribution, noise, and low-rank structure can strongly shape training trajectories, and random matrix methods help reveal universality phenomena that persist across models. For large problems, worst-case complexity often fails to capture typical behavior, and average-case analyses provide more relevant insight, especially when universality makes performance largely independent of fine distributional details. Beyond finding a minimizer, training can introduce inductive biases that improve generalization in over-parameterized models, and learning may unfold in a stage-wise or "staircase" manner, with relevant directions discovered sequentially.
+I am interested in understanding when such models can be learned efficiently. A recurring theme is the statistical–computational tradeoff: some problems are learnable in principle, but no efficient algorithm achieves the optimal rates. Frameworks such as statistical query (SQ) and low-degree polynomial (LDP) methods help formalize these limitations, while algorithmic work aims to match (or nearly match) these bounds.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -19,5 +19,5 @@ In high-dimensional learning problems, optimization algorithms exhibit rich and 
     </div>
 </div>
 <div class="caption">
-    The halting time of gradient descent applied to a random linear regression problem becomes predictable as the dimension of the input and the number of samples increase linearly. We also observe a universality phenomenon: the halting time does not depend on the distribution of the input.
+Heat map illustrating subspace recovery in a parity multi-index model. The first two rows correspond to the hidden orthonormal directions generating the signal. The last two rows show the basis recovered by harmonic tensor unfolding as the number of samples increases. As more data becomes available, the recovered subspace progressively aligns with the true latent structure.
 </div>
