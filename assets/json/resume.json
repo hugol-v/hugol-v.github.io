@@ -71,24 +71,36 @@
   ],
   "publications": [
     {
+      "name": "Statistical-Computational Trade-offs in Learning Multi-Index Models via Harmonic Analysis",
+      "publisher": "Preprint: arXiv:2602.09959",
+      "releaseDate": "2026",
+      "authors": "Hugo Latourelle-Vigeant and Theodor Misiakiewicz",
+      "url": "https://arxiv.org/abs/2602.09959",
+      "type": "Research",
+      "summary": "We study the problem of learning multi-index models (MIMs), where the label depends on the input only through an unknown low-dimensional projection. Exploiting the equivariance of this problem under the orthogonal group, we obtain a sharp harmonic-analytic characterization of the learning complexity for MIMs with spherically symmetric inputs, refining and generalizing previous Gaussian-specific analyses. We derive statistical and computational lower bounds in the Statistical Query and Low-Degree Polynomial frameworks that decompose across spherical harmonic subspaces. Guided by this structure, we construct spectral algorithms based on harmonic tensor unfolding that sequentially recover the latent directions and nearly achieve these bounds, enabling a range of trade-offs between sample and runtime complexity."
+    },
+
+    {
+      "name": "Dyson Equation for Correlated Linearizations and Test Error of Random Features Regression",
+      "publisher": "Random Matrices: Theory and Applications",
+      "releaseDate": "2026",
+      "authors": "Hugo Latourelle-Vigeant and Elliot Paquette",
+      "url": "https://doi.org/10.1142/S2010326325500261",
+      "type": "Research",
+      "summary": "Developed a theory of the matrix Dyson equation for correlated linearizations, including existence-uniqueness, spectral support bounds, and stability properties. This framework is applied to derive a deterministic equivalent for the empirical test error in random features ridge regression in a proportional high-dimensional regime, conditioned on both training and test data. The results provide a rigorous understanding of generalization in random features models and establish a Gaussian equivalence principle for the test error."
+    },
+
+    {
       "name": "The matrix Dyson equation for machine learning: Correlated linearizations and the test error in random features regression",
       "publisher": "McGill University",
       "releaseDate": "2024",
       "authors": "Hugo Latourelle-Vigeant",
       "url": "https://escholarship.mcgill.ca/concern/theses/m900p100w?locale=en",
-      "type": "Research",
-      "summary": "Extended the matrix Dyson equation framework to derive an anisotropic global law for pseudo-resolvents with general correlation structures. Applied this framework to provide an exact deterministic expression for the empirical test error in random features ridge regression, addressing aspects such as existence-uniqueness, spectral support bounds, and stability properties."
-    },
-    {
-      "name": "Dyson Equation for Correlated Linearizations and Test Error of Random Features Regression",
-      "publisher": "Preprint: arXiv:2312.09194v2",
-      "releaseDate": "2024",
-      "authors": "Hugo Latourelle-Vigeant and Elliot Paquette",
-      "url": "https://arxiv.org/pdf/2312.09194v2",
-      "type": "Research",
-      "summary": "Developed theory for the matrix Dyson equation for correlated linearizations, including existence-uniqueness, spectral support bounds, and stability properties, and applied this to derive a deterministic equivalent for the test error in random features ridge regression."
+      "type": "Thesis",
+      "summary": "Extended the matrix Dyson equation framework to an anisotropic global law for pseudo-resolvents with general correlation structures. The thesis develops existence-uniqueness, spectral support, and stability theory for correlated linear pencils, and applies this machinery to obtain an asymptotically exact deterministic expression for the test error of random features ridge regression. This work clarifies the role of implicit regularization in random features models and their connection with kernel methods, without assuming specific data distributions."
     }
-  ],
+  ]
+  ,
   "presentations": [
     {
       "name": "Matrix Dyson Equation for Correlated Linearizations",
@@ -117,61 +129,96 @@
   ],
   "teaching": [
     {
-      "course": "Calculus 2 - MATH 141",
-      "location": "McGill University",
-      "position": "Teaching Assistant",
-      "semester": "Winter 2024",
-      "date": "2024-01",
+      "course_name": "Theory of Statistics",
+      "course_number": "S&DS2420",
+      "department": "Department of Statistics and Data Science",
+      "university": "Yale University",
+      "position": "Teaching Fellow",
+      "semester": "Spring 2026",
+      "date": "2026-01",
       "highlights": []
     },
     {
-      "course": "Convex Optimization - Math 463/563",
-      "location": "McGill University",
-      "position": "Graduate Course Assistant",
-      "semester": "Winter 2024",
-      "date": "2024-01",
+      "course_name": "Probability",
+      "course_number": "S&DS2410",
+      "department": "Department of Statistics and Data Science",
+      "university": "Yale University",
+      "position": "Head Teaching Fellow",
+      "semester": "Fall 2025",
+      "date": "2025-09",
       "highlights": []
     },
+
     {
-      "course": "Calculus 2 - MATH 141",
-      "location": "McGill University",
-      "position": "Teaching Assistant",
-      "semester": "Winter 2023",
-      "date": "2023-01",
-      "highlights": []
-    },
-    {
-      "course": "Convex Optimization - Math 463/563",
-      "location": "McGill University",
-      "position": "Graduate Course Assistant",
-      "semester": "Winter 2023",
-      "date": "2023-01",
-      "highlights": []
-    },
-    {
-      "course": "Calculus 2 - MATH 141",
-      "location": "McGill University",
-      "position": "Teaching Assistant",
-      "semester": "Fall 2022",
-      "date": "2022-09",
-      "highlights": []
-    },
-    {
-      "course": "Numerical Optimization - Math 560",
-      "location": "McGill University",
-      "position": "Graduate Course Assistant",
-      "semester": "Fall 2022",
-      "date": "2022-09",
-      "highlights": []
-    },
-    {
-      "course": "Numerical Optimization - Math 560",
-      "location": "McGill University",
-      "position": "Undergraduate Course Assistant",
-      "semester": "Winter 2022",
-      "date": "2022-01",
-      "highlights": []
-    }
+    "course_name": "Calculus 2",
+    "course_number": "MATH 141",
+    "department": "Department of Mathematics and Statistics",
+    "university": "McGill University",
+    "position": "Teaching Assistant",
+    "semester": "Winter 2024",
+    "date": "2024-01",
+    "highlights": []
+  },
+  {
+    "course_name": "Convex Optimization",
+    "course_number": "MATH 463/563",
+    "department": "Department of Mathematics and Statistics",
+    "university": "McGill University",
+    "position": "Graduate Course Assistant",
+    "semester": "Winter 2024",
+    "date": "2024-01",
+    "highlights": []
+  },
+  {
+    "course_name": "Calculus 2",
+    "course_number": "MATH 141",
+    "department": "Department of Mathematics and Statistics",
+    "university": "McGill University",
+    "position": "Teaching Assistant",
+    "semester": "Winter 2023",
+    "date": "2023-01",
+    "highlights": []
+  },
+  {
+    "course_name": "Convex Optimization",
+    "course_number": "MATH 463/563",
+    "department": "Department of Mathematics and Statistics",
+    "university": "McGill University",
+    "position": "Graduate Course Assistant",
+    "semester": "Winter 2023",
+    "date": "2023-01",
+    "highlights": []
+  },
+  {
+    "course_name": "Calculus 2",
+    "course_number": "MATH 141",
+    "department": "Department of Mathematics and Statistics",
+    "university": "McGill University",
+    "position": "Teaching Assistant",
+    "semester": "Fall 2022",
+    "date": "2022-09",
+    "highlights": []
+  },
+  {
+    "course_name": "Numerical Optimization",
+    "course_number": "MATH 560",
+    "department": "Department of Mathematics and Statistics",
+    "university": "McGill University",
+    "position": "Graduate Course Assistant",
+    "semester": "Fall 2022",
+    "date": "2022-09",
+    "highlights": []
+  },
+  {
+    "course_name": "Numerical Optimization",
+    "course_number": "MATH 560",
+    "department": "Department of Mathematics and Statistics",
+    "university": "McGill University",
+    "position": "Undergraduate Course Assistant",
+    "semester": "Winter 2022",
+    "date": "2022-01",
+    "highlights": []
+  }
   ],
   "awards": [
     {
@@ -205,21 +252,27 @@
   ],
   "reviewer": [
     {
+      "conference": "ICML",
+      "date": "2025",
+      "workshop": "3rd Workshop on High-dimensional Learning Dynamics (HiLD)",
+      "url": "https://sites.google.com/view/hidimlearning/home"
+    },
+    {
       "conference": "NeurIPS",
       "date": "2024",
-      "workshop": "OPT Workshop on Optimization for Machine Learning",
+      "workshop": "16th International OPT Workshop on Optimization for Machine Learning",
       "url": "https://opt-ml.org/"
     },
     {
       "conference": "ICML",
       "date": "2024",
       "workshop": "2nd Workshop on High-dimensional Learning Dynamics (HiLD): The Emergence of Structure and Reasoning",
-      "url": "https://sites.google.com/view/hidimlearning/home?pli=1"
+      "url": "https://sites.google.com/view/hidimlearning/home"
     },
     {
       "conference": "NeurIPS",
       "date": "2023",
-      "workshop": "OPT Workshop on Optimization for Machine Learning",
+      "workshop": "15th International OPT Workshop on Optimization for Machine Learning",
       "url": "https://opt-ml.org/"
     },
     {
@@ -231,7 +284,7 @@
     {
       "conference": "NeurIPS",
       "date": "2022",
-      "workshop": "OPT Workshop on Optimization for Machine Learning",
+      "workshop": "14th International OPT Workshop on Optimization for Machine Learning",
       "url": "https://opt-ml.org/oldopt/opt22/"
     }
   ],
