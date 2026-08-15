@@ -1,113 +1,241 @@
 ---
 layout: default
 ---
-{% unless site.data.resume %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-            ><i class="fa-solid fa-file-pdf"></i
-          ></a>
-        {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
-    </header>
 
-    <article>
-      <div class="cv">
-        {% for entry in site.data.cv %}
-          <a class="anchor" id="{{ entry.title }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
-            <div>
-              {% if entry.type == 'list' %}
-                {% include cv/list.liquid %}
-              {% elsif entry.type == 'map' %}
-                {% include cv/map.liquid %}
-              {% elsif entry.type == 'nested_list' %}
-                {% include cv/nested_list.liquid %}
-              {% elsif entry.type == 'time_table' %}
-                {% include cv/time_table.liquid %}
-              {% elsif entry.type == 'list_groups' %}
-                {% include cv/list_groups.liquid %}
-              {% else %}
-                {{ entry.contents }}
+{% assign resume = site.data.resume %}
+{% assign basics = resume.basics %}
+
+<div class="cv-page">
+  <header class="cv-hero">
+    <div class="cv-hero-copy">
+      <p class="cv-eyebrow">Curriculum vitae</p>
+      <h1>{{ basics.name }}</h1>
+      <p class="cv-role">{{ basics.label }}</p>
+
+      <ul class="cv-contact-list" aria-label="Affiliation and location">
+        <li>
+          <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+          <span>{{ basics.affiliation }}</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          <span>{{ basics.location.city }}, {{ basics.location.region }}, {{ basics.location.country }}</span>
+        </li>
+      </ul>
+    </div>
+
+    {% if page.cv_pdf %}
+      <a class="cv-download" href="{{ page.cv_pdf | prepend: '/assets/pdf/' | relative_url }}" download>
+        <span class="cv-download-icon" aria-hidden="true">
+          <i class="fa-solid fa-file-arrow-down"></i>
+        </span>
+        <span class="cv-download-copy">
+          <strong>Download full CV</strong>
+          <small>PDF · Updated {{ resume.meta.lastUpdated }}</small>
+        </span>
+      </a>
+    {% endif %}
+  </header>
+
+  <section class="cv-interests" aria-labelledby="research-interests-title">
+    <h2 id="research-interests-title">Research interests</h2>
+    <ul>
+      {% for interest in resume.interests %}
+        <li>{{ interest }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <nav class="cv-jump-nav" aria-label="CV sections">
+    <span>Jump to</span>
+    <a href="#education">Education</a>
+    <a href="#publications">Publications</a>
+    <a href="#presentations">Presentations</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#service">Service</a>
+    <a href="#experience">Experience</a>
+    <a href="#awards">Awards</a>
+  </nav>
+
+  <div class="cv-content">
+    <section class="cv-section" id="education" aria-labelledby="education-title">
+      <header class="cv-section-header">
+        <span class="cv-section-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></span>
+        <h2 id="education-title">Education</h2>
+      </header>
+      <div class="cv-entry-list">
+        {% for item in resume.education %}
+          <div class="cv-entry">
+            <div class="cv-entry-date">
+              <span>{{ item.date }}</span>
+              {% if item.expected %}<small>{{ item.expected }}</small>{% endif %}
+            </div>
+            <div class="cv-entry-content">
+              <h3>
+                {% if item.url and item.url != '' %}
+                  <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.studyType }}</a>
+                {% else %}
+                  {{ item.studyType }}
+                {% endif %}
+              </h3>
+              <p class="cv-entry-meta">{{ item.institution }} <span aria-hidden="true">·</span> {{ item.location }}</p>
+              {% if item.details and item.details.size > 0 %}
+                <ul class="cv-entry-details">
+                  {% for detail in item.details %}
+                    <li>{{ detail }}</li>
+                  {% endfor %}
+                </ul>
               {% endif %}
             </div>
           </div>
         {% endfor %}
       </div>
-    </article>
-  </div>
-{% else %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-            ><i class="fa-solid fa-file-pdf"></i
-          ></a>
-        {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
-    </header>
+    </section>
 
-    <article>
-      <div class="cv">
-        {% for data in site.data.resume %}
-          {% if site.jsonresume and site.jsonresume.size > 0 %}
-            {% unless site.jsonresume contains data[0] %}
-              {% continue %}
-            {% endunless %}
-          {% endif %}
-          {% if data[0] == 'meta' or data[1].size == 0 %} {% continue %} {% endif %}
-          <a class="anchor" id="{{ data[0] }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ data[0] | capitalize }}</h3>
-            <div>
-              {% case data[0] %}
-                {% when 'basics' %}
-                  {% include resume/basics.liquid %}
-                {% when 'education' %}
-                  {% include resume/education.liquid %}
-                {% when 'work' %}
-                  {% include resume/work.liquid %}
-                {% when 'projects' %}
-                  {% include resume/projects.liquid %}
-                {% when 'awards' %}
-                  {% include resume/awards.liquid %}
-                {% when 'publications' %}
-                  {% include resume/publications.liquid %}
-                {% when 'presentations' %}
-                  {% include resume/presentations.liquid %}
-                {% when 'teaching' %}
-                  {% include resume/teaching.liquid %}
-                {% when 'reviewer' %}
-                  {% include resume/reviewer.liquid %}
-                {% when 'organizer' %}
-                  {% include resume/organizer.liquid %}
-                {% else %}
-              {% endcase %}
+    <section class="cv-section" id="publications" aria-labelledby="publications-title">
+      <header class="cv-section-header">
+        <span class="cv-section-icon" aria-hidden="true"><i class="fa-solid fa-book-open"></i></span>
+        <h2 id="publications-title">Publications &amp; preprints</h2>
+      </header>
+      <div class="cv-entry-list">
+        {% for item in resume.publications %}
+          <div class="cv-entry cv-entry-publication">
+            <div class="cv-entry-date"><time datetime="{{ item.releaseDate }}">{{ item.releaseDate }}</time></div>
+            <div class="cv-entry-content">
+              <h3>
+                <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
+              </h3>
+              <p class="cv-entry-meta">{{ item.authors }}</p>
+              <p class="cv-entry-note">
+                {{ item.publisher }}
+                {% if item.status %}<span class="cv-status">{{ item.status }}</span>{% endif %}
+              </p>
             </div>
           </div>
         {% endfor %}
       </div>
-    </article>
+    </section>
+
+    <section class="cv-section" id="presentations" aria-labelledby="presentations-title">
+      <header class="cv-section-header">
+        <span class="cv-section-icon" aria-hidden="true"><i class="fa-solid fa-microphone-lines"></i></span>
+        <h2 id="presentations-title">Talks &amp; presentations</h2>
+      </header>
+      <div class="cv-entry-list">
+        {% for item in resume.presentations %}
+          <div class="cv-entry">
+            <div class="cv-entry-date"><span>{{ item.date }}</span></div>
+            <div class="cv-entry-content">
+              <h3>{{ item.name }}</h3>
+              <p class="cv-entry-meta">{{ item.type }} <span aria-hidden="true">·</span> {{ item.venue }}</p>
+              {% if item.location and item.location != '' %}
+                <p class="cv-entry-note">{{ item.location }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="cv-section" id="teaching" aria-labelledby="teaching-title">
+      <header class="cv-section-header">
+        <span class="cv-section-icon" aria-hidden="true"><i class="fa-solid fa-chalkboard-user"></i></span>
+        <h2 id="teaching-title">Teaching</h2>
+      </header>
+      <div class="cv-entry-list">
+        {% for item in resume.teaching %}
+          <div class="cv-entry">
+            <div class="cv-entry-date"><span>{{ item.semester }}</span></div>
+            <div class="cv-entry-content">
+              <h3>{{ item.course_name }} <span class="cv-course-number">{{ item.course_number }}</span></h3>
+              <p class="cv-entry-meta">{{ item.position }} <span aria-hidden="true">·</span> {{ item.university }}</p>
+              <p class="cv-entry-note">{{ item.department }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="cv-section" id="service" aria-labelledby="service-title">
+      <header class="cv-section-header">
+        <span class="cv-section-icon" aria-hidden="true"><i class="fa-solid fa-people-group"></i></span>
+        <h2 id="service-title">Academic service</h2>
+      </header>
+      <div class="cv-entry-list">
+        {% for item in resume.service %}
+          <div class="cv-entry">
+            <div class="cv-entry-date">
+              <span>{{ item.date }}</span>
+              <small>{{ item.category }}</small>
+            </div>
+            <div class="cv-entry-content">
+              <h3>
+                {% if item.url and item.url != '' %}
+                  <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.role }}</a>
+                {% else %}
+                  {{ item.role }}
+                {% endif %}
+              </h3>
+              <p class="cv-entry-meta">{{ item.organization }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="cv-section" id="experience" aria-labelledby="experience-title">
+      <header class="cv-section-header">
+        <span class="cv-section-icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span>
+        <h2 id="experience-title">Experience</h2>
+      </header>
+      <div class="cv-entry-list">
+        {% for item in resume.work %}
+          <div class="cv-entry">
+            <div class="cv-entry-date"><span>{{ item.date }}</span></div>
+            <div class="cv-entry-content">
+              <h3>
+                {% if item.url and item.url != '' %}
+                  <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.position }}</a>
+                {% else %}
+                  {{ item.position }}
+                {% endif %}
+              </h3>
+              <p class="cv-entry-meta">{{ item.name }} <span aria-hidden="true">·</span> {{ item.location }}</p>
+              {% if item.highlights and item.highlights.size > 0 %}
+                <ul class="cv-entry-details">
+                  {% for detail in item.highlights %}
+                    <li>{{ detail }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="cv-section" id="awards" aria-labelledby="awards-title">
+      <header class="cv-section-header">
+        <span class="cv-section-icon" aria-hidden="true"><i class="fa-solid fa-award"></i></span>
+        <h2 id="awards-title">Awards &amp; scholarships</h2>
+      </header>
+      <div class="cv-entry-list">
+        {% for item in resume.awards %}
+          <div class="cv-entry">
+            <div class="cv-entry-date"><time datetime="{{ item.date }}">{{ item.date }}</time></div>
+            <div class="cv-entry-content">
+              <h3>
+                {% if item.url and item.url != '' %}
+                  <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+                {% else %}
+                  {{ item.title }}
+                {% endif %}
+              </h3>
+              <p class="cv-entry-meta">{{ item.awarder }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
   </div>
-  
-{% endunless %}
+</div>
