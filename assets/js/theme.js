@@ -1,24 +1,26 @@
 // Has to be in the head tag, otherwise a flicker effect will occur.
 
-// Toggle through light, dark, and system theme settings.
+// Toggle directly between the two visual themes.
 let toggleThemeSetting = () => {
-  let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    setThemeSetting("light");
-  } else if (themeSetting == "light") {
-    setThemeSetting("dark");
-  } else {
-    setThemeSetting("system");
-  }
+  let theme = determineComputedTheme();
+  setThemeSetting(theme == "dark" ? "light" : "dark");
 };
 
 // Change the theme setting and apply the theme.
 let setThemeSetting = (themeSetting) => {
   localStorage.setItem("theme", themeSetting);
-
-  document.documentElement.setAttribute("data-theme-setting", themeSetting);
-
   applyTheme();
+};
+
+// Keep the control's accessible name synchronized with its next action.
+let updateThemeToggleLabel = (theme) => {
+  const modeToggle = document.getElementById("light-toggle");
+  if (!modeToggle) return;
+
+  const nextTheme = theme == "dark" ? "light" : "dark";
+  const label = `Switch to ${nextTheme} theme`;
+  modeToggle.setAttribute("aria-label", label);
+  modeToggle.setAttribute("title", label);
 };
 
 // Apply the computed dark or light theme to the website.
@@ -50,6 +52,7 @@ let applyTheme = () => {
   }
 
   document.documentElement.setAttribute("data-theme", theme);
+  updateThemeToggleLabel(theme);
 
   // Add class to tables.
   let tables = document.getElementsByTagName("table");
@@ -193,21 +196,19 @@ let transTheme = () => {
   }, 500);
 };
 
-// Determine the expected state of the theme toggle, which can be "dark", "light", or
-// "system". Default is "system".
+// Return an explicit saved preference, or null when the system default should be used.
 let determineThemeSetting = () => {
   let themeSetting = localStorage.getItem("theme");
-  if (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") {
-    themeSetting = "system";
+  if (themeSetting != "dark" && themeSetting != "light") {
+    return null;
   }
   return themeSetting;
 };
 
-// Determine the computed theme, which can be "dark" or "light". If the theme setting is
-// "system", the computed theme is determined based on the user's system preference.
+// Determine the visual theme. With no saved choice, follow the user's system preference.
 let determineComputedTheme = () => {
   let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
+  if (themeSetting === null) {
     const userPref = window.matchMedia;
     if (userPref && userPref("(prefers-color-scheme: dark)").matches) {
       return "dark";
@@ -222,19 +223,33 @@ let determineComputedTheme = () => {
 let initTheme = () => {
   let themeSetting = determineThemeSetting();
 
-  setThemeSetting(themeSetting);
+  // Migrate the former "system" value (and any invalid value) to the new default state.
+  if (themeSetting === null) {
+    localStorage.removeItem("theme");
+  }
+  applyTheme();
 
   // Add event listener to the theme toggle button.
   document.addEventListener("DOMContentLoaded", function () {
     const mode_toggle = document.getElementById("light-toggle");
 
-    mode_toggle.addEventListener("click", function () {
-      toggleThemeSetting();
-    });
+    if (mode_toggle) {
+      updateThemeToggleLabel(determineComputedTheme());
+      mode_toggle.addEventListener("click", function () {
+        toggleThemeSetting();
+      });
+    }
   });
 
-  // Add event listener to the system theme preference change.
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
-    applyTheme();
-  });
+  // Continue following system changes until the visitor makes an explicit choice.
+  const systemTheme = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  const followSystemTheme = () => {
+    if (determineThemeSetting() === null) applyTheme();
+  };
+
+  if (systemTheme && systemTheme.addEventListener) {
+    systemTheme.addEventListener("change", followSystemTheme);
+  } else if (systemTheme && systemTheme.addListener) {
+    systemTheme.addListener(followSystemTheme);
+  }
 };
