@@ -33,7 +33,7 @@ I have a broad interest in various subjects within the realm of high-dimensional
     </div>
   </div>
   {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="project-card-grid">
     {% for project in sorted_research %}
       {% include projects.liquid %}
     {% endfor %}
@@ -59,7 +59,7 @@ I have a broad interest in various subjects within the realm of high-dimensional
     </div>
   </div>
   {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="project-card-grid">
     {% for project in sorted_research %}
       {% include projects.liquid %}
     {% endfor %}

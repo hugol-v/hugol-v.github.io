@@ -1,15 +1,20 @@
-<div class="col">
-  <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
-    <div class="card h-100 hoverable">
+<div class="project-card">
+  <a
+    class="project-card-link"
+    href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}"
+  >
+    <div class="card">
       {% if project.img %}
-        {%
-          include figure.liquid
-          loading="eager"
-          path=project.img
-          sizes = "250px"
-          alt="project thumbnail"
-          class="card-img-top"
-        %}
+        <div class="project-card-media">
+          {%
+            include figure.liquid
+            loading="eager"
+            path=project.img
+            sizes = "(min-width: 800px) 370px, (min-width: 576px) 45vw, 95vw"
+            alt="project thumbnail"
+            class="card-img-top"
+          %}
+        </div>
       {% endif %}
       <div class="card-body">
         <h2 class="card-title">{{ project.title }}</h2>

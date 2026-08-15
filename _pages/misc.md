@@ -27,7 +27,7 @@ nav_order: 5
     </div>
   </div>
   {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="project-card-grid">
     {% for project in sorted_misc %}
       {% include projects.liquid %}
     {% endfor %}
@@ -53,7 +53,7 @@ nav_order: 5
     </div>
   </div>
   {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="project-card-grid">
     {% for project in sorted_misc %}
       {% include projects.liquid %}
     {% endfor %}
