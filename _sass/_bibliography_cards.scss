@@ -63,6 +63,78 @@ html[data-theme="dark"] .publications {
   grid-template-columns: minmax(0, 1fr);
 }
 
+.presentation-entry {
+  .presentation-entry-heading {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .presentation-entry-heading .title {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .presentation-entry-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  .presentation-type {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    min-height: 1.7rem;
+    padding: 0.25rem 0.65rem;
+    color: var(--global-theme-color);
+    background-color: var(--global-code-bg-color);
+    border: 1px solid var(--global-theme-color);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .presentation-preview {
+    width: 100%;
+
+    figure,
+    picture {
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
+
+    .preview {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background-color: var(--global-code-bg-color);
+      border: 1px solid var(--global-divider-color);
+      border-radius: 0.65rem;
+    }
+  }
+}
+
+.presentation-entry--has-preview {
+  grid-template-columns: minmax(0, 1fr) 10rem;
+
+  .publication-content {
+    grid-column: 1;
+  }
+
+  .presentation-entry-aside {
+    grid-column: 2;
+  }
+}
+
 .publication-media {
   display: flex;
   flex-direction: column;
@@ -283,6 +355,34 @@ html[data-theme="dark"] .publications {
 
   .publication-content .title {
     font-size: 1rem;
+  }
+
+  .presentation-entry {
+    .presentation-entry-heading {
+      flex-direction: column-reverse;
+      gap: 0.65rem;
+    }
+
+    .presentation-type {
+      align-self: flex-start;
+    }
+
+    .presentation-entry-aside {
+      align-items: flex-start;
+    }
+  }
+
+  .presentation-entry--has-preview {
+    .publication-content {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .presentation-entry-aside {
+      grid-column: 1;
+      grid-row: 1;
+      max-width: 15rem;
+    }
   }
 }
 
