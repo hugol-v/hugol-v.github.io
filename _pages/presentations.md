@@ -3,6 +3,7 @@ layout: page
 title: presentations
 permalink: /presentations/
 description: Some of the research presentations that I gave.
+intro_panel: true
 nav: true
 nav_order: 4
 horizontal: false

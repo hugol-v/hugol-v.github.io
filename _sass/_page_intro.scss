@@ -1,0 +1,109 @@
+.page-intro-panel {
+  --page-intro-muted-color: #5f6368;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  padding: 1.4rem 1.55rem 1.45rem;
+  background-color: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.85rem;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.045);
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0 auto 0 0;
+    width: 0.28rem;
+    background-color: var(--global-theme-color);
+  }
+
+  .post-title {
+    margin: 0;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 650;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+  }
+
+  .post-description {
+    max-width: 48rem;
+    margin: 0.6rem 0 0;
+    color: var(--page-intro-muted-color);
+    font-size: 0.92rem;
+    line-height: 1.6;
+
+    a {
+      color: var(--global-text-color);
+      text-decoration-color: var(--global-theme-color);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+
+      &:hover {
+        color: var(--global-text-color);
+        text-decoration-color: var(--global-theme-color);
+        text-decoration-thickness: 2px;
+      }
+
+      &:focus-visible {
+        border-radius: 0.15rem;
+        outline: 3px solid var(--global-theme-color);
+        outline-offset: 3px;
+      }
+    }
+  }
+}
+
+html[data-theme="dark"] .page-intro-panel {
+  --page-intro-muted-color: #b7bdc3;
+
+  box-shadow: 0 0.3rem 1.1rem rgba(0, 0, 0, 0.16);
+}
+
+.research-quote {
+  --research-quote-muted-color: #5f6368;
+
+  margin: -0.25rem 0 1.75rem;
+  padding: 0.25rem 0 0.25rem 1rem;
+  color: var(--research-quote-muted-color);
+  background: transparent;
+  border-left: 2px solid var(--global-theme-color);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.6;
+
+  p {
+    margin: 0;
+    color: inherit;
+  }
+
+  cite {
+    display: block;
+    margin-top: 0.35rem;
+    color: inherit;
+    font-size: 0.78rem;
+    font-style: normal;
+  }
+}
+
+html[data-theme="dark"] .research-quote {
+  --research-quote-muted-color: #b7bdc3;
+}
+
+@media (max-width: 575.98px) {
+  .page-intro-panel {
+    margin-bottom: 1.5rem;
+    padding: 1.15rem 1.2rem 1.2rem;
+
+    .post-title {
+      font-size: 1.75rem;
+    }
+
+    .post-description {
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+  }
+}

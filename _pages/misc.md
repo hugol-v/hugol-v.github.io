@@ -3,6 +3,7 @@ layout: page
 permalink: /misc/
 title: miscellaneous
 description: Random projects and other miscellaneous items.
+intro_panel: true
 nav: true
 nav_order: 5
 ---

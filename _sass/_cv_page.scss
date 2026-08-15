@@ -30,19 +30,6 @@ html[data-theme="dark"] .cv-page {
   border-radius: 1rem;
   box-shadow: 0 0.35rem 1.25rem rgba(0, 0, 0, 0.07);
 
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -7rem;
-    right: -5rem;
-    width: 17rem;
-    height: 17rem;
-    background-color: var(--global-theme-color);
-    border-radius: 50%;
-    opacity: 0.08;
-  }
-
   h1 {
     margin: 0;
     font-size: clamp(2rem, 5vw, 2.75rem);

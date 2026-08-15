@@ -1,20 +1,26 @@
 $(document).ready(function () {
-  // add toggle functionality to abstract, award and bibtex buttons
-  $("a.abstract").click(function () {
-    $(this).parent().parent().find(".abstract.hidden").toggleClass("open");
-    $(this).parent().parent().find(".award.hidden.open").toggleClass("open");
-    $(this).parent().parent().find(".bibtex.hidden.open").toggleClass("open");
-  });
-  $("a.award").click(function () {
-    $(this).parent().parent().find(".abstract.hidden.open").toggleClass("open");
-    $(this).parent().parent().find(".award.hidden").toggleClass("open");
-    $(this).parent().parent().find(".bibtex.hidden.open").toggleClass("open");
-  });
-  $("a.bibtex").click(function () {
-    $(this).parent().parent().find(".abstract.hidden.open").toggleClass("open");
-    $(this).parent().parent().find(".award.hidden.open").toggleClass("open");
-    $(this).parent().parent().find(".bibtex.hidden").toggleClass("open");
-  });
+  // Add accessible toggle functionality to publication details.
+  function togglePublicationDetail(buttonSelector, detailSelector) {
+    $(buttonSelector).click(function () {
+      const button = $(this);
+      const publication = button.closest(".publication-content");
+      const detail = publication.find(detailSelector).first();
+      const shouldOpen = !detail.hasClass("open");
+
+      publication.find(".publication-detail.open").removeClass("open").attr("aria-hidden", "true");
+      publication.find(".links button[aria-expanded='true']").attr("aria-expanded", "false");
+
+      if (shouldOpen) {
+        detail.addClass("open").attr("aria-hidden", "false");
+        button.attr("aria-expanded", "true");
+      }
+    });
+  }
+
+  togglePublicationDetail(".links button.abstract", ".abstract.publication-detail");
+  togglePublicationDetail(".links button.award", ".award.publication-detail");
+  togglePublicationDetail(".links button.bibtex", ".bibtex.publication-detail");
+  togglePublicationDetail(".links button.video-toggle", ".video.publication-detail");
   $("a").removeClass("waves-effect waves-light");
 
   // bootstrap-toc

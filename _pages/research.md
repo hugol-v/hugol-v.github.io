@@ -2,16 +2,17 @@
 layout: page
 title: research
 permalink: /research/
-description: Summary of my research interests.
+description: My interests span high-dimensional probability, statistics, machine learning, and random matrix theory. Below is a concise overview of several tightly interconnected areas I am interested in.
+intro_panel: true
 nav: true
 nav_order: 2
 horizontal: false
 ---
 
-<blockquote>A system is deterministic only in the ways that it is explicitly prevented from being random
-<cite>- Principle of maximum entropy</cite></blockquote>
-
-I have a broad interest in various subjects within the realm of high-dimensional probability, statistics, machine learning, and random matrix theory. Below, I provide a concise overview of some tightly interconnected research areas that I am interested in.
+<blockquote class="research-quote">
+  <p>A system is deterministic only in the ways that it is explicitly prevented from being random</p>
+  <cite>— Principle of maximum entropy</cite>
+</blockquote>
 
 <!-- pages/research.md -->
 <div class="research">
