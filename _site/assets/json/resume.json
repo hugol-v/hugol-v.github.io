@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "lastUpdated": "August 2026"
+  },
+  "basics": {
+    "name": "Hugo Latourelle-Vigeant",
+    "label": "Ph.D. student in Statistics and Data Science",
+    "affiliation": "Department of Statistics and Data Science, Yale University",
+    "email": "hugo.latourelle-vigeant@yale.edu",
+    "url": "https://hugol-v.github.io",
+    "summary": "My research focuses on random matrix theory, machine learning theory, statistical-computational trade-offs, and high-dimensional probability.",
+    "location": {
+      "city": "New Haven",
+      "region": "CT",
+      "country": "USA"
+    }
+  },
+  "interests": [
+    "Random matrix theory",
+    "Machine learning theory",
+    "Statistical-computational trade-offs",
+    "High-dimensional probability"
+  ],
+  "education": [
+    {
+      "institution": "Yale University",
+      "location": "New Haven, CT",
+      "url": "https://statistics.yale.edu/",
+      "studyType": "Ph.D. in Statistics and Data Science",
+      "date": "2024-Present",
+      "expected": "Expected 2030",
+      "details": [
+        "Advised by Professor Theodor Misiakiewicz"
+      ]
+    },
+    {
+      "institution": "McGill University",
+      "location": "Montreal, QC",
+      "url": "https://www.mcgill.ca/mathstat/",
+      "studyType": "M.Sc. in Mathematics and Statistics",
+      "date": "2022-2024",
+      "details": [
+        "Thesis: The matrix Dyson equation for machine learning: Correlated linearizations and the test error in random features regression",
+        "Co-advised by Professor Courtney Paquette and Professor Elliot Paquette"
+      ]
+    },
+    {
+      "institution": "McGill University",
+      "location": "Montreal, QC",
+      "url": "https://www.mcgill.ca/",
+      "studyType": "B.Sc. Joint Honours in Mathematics and Computer Science",
+      "date": "2018-2022",
+      "details": []
+    }
+  ],
+  "publications": [
+    {
+      "name": "Statistical-Computational Trade-offs in Learning Multi-Index Models via Harmonic Analysis",
+      "publisher": "arXiv preprint arXiv:2602.09959",
+      "releaseDate": "2026",
+      "authors": "Hugo Latourelle-Vigeant and Theodor Misiakiewicz",
+      "url": "https://arxiv.org/abs/2602.09959",
+      "status": "Submitted"
+    },
+    {
+      "name": "Dyson Equation for Correlated Linearizations and Test Error of Random Features Regression",
+      "publisher": "Random Matrices: Theory and Applications, 15(01), 2550026",
+      "releaseDate": "2026",
+      "authors": "Hugo Latourelle-Vigeant and Elliot Paquette",
+      "url": "https://doi.org/10.1142/S2010326325500261",
+      "status": "Published"
+    }
+  ],
+  "presentations": [
+    {
+      "name": "Generalization, Memorization, and Overfitting in Kernel Denoising Score Matching in High Dimensions",
+      "date": "August 2026",
+      "type": "Poster presentation",
+      "venue": "Princeton Machine Learning Theory Summer School",
+      "location": "Princeton University, Princeton, NJ"
+    },
+    {
+      "name": "Introduction to the Matrix Dyson Equation",
+      "date": "March 2024",
+      "type": "Talk",
+      "venue": "ETH Zurich",
+      "location": ""
+    },
+    {
+      "name": "Matrix Dyson Equation for Correlated Linearizations",
+      "date": "December 2023",
+      "type": "Workshop talk",
+      "venue": "The many facets of random matrix theory workshop, 2023 Canadian Mathematical Society Winter Meeting",
+      "location": "Montreal, QC"
+    },
+    {
+      "name": "Matrix Dyson Equation for Correlated Linearizations",
+      "date": "September 2023",
+      "type": "Seminar talk",
+      "venue": "Seminar in Machine Learning, Optimization and Random Matrix Theory, McGill University",
+      "location": "Montreal, QC"
+    },
+    {
+      "name": "GD and Large Linear Regression: Concentration and Asymptotics for a Spiked Model",
+      "date": "August 2021",
+      "type": "Conference talk",
+      "venue": "4th Undergraduate Student Research Conference, McGill University",
+      "location": "Montreal, QC"
+    }
+  ],
+  "teaching": [
+    {
+      "course_name": "Statistical Inference",
+      "course_number": "S&DS4100/6100",
+      "department": "Department of Statistics and Data Science",
+      "university": "Yale University",
+      "position": "Teaching Fellow",
+      "semester": "Fall 2026"
+    },
+    {
+      "course_name": "Theory of Statistics",
+      "course_number": "S&DS2420",
+      "department": "Department of Statistics and Data Science",
+      "university": "Yale University",
+      "position": "Teaching Fellow",
+      "semester": "Spring 2026"
+    },
+    {
+      "course_name": "Probability Theory",
+      "course_number": "S&DS2410",
+      "department": "Department of Statistics and Data Science",
+      "university": "Yale University",
+      "position": "Head Teaching Fellow",
+      "semester": "Fall 2025"
+    },
+    {
+      "course_name": "Calculus 2",
+      "course_number": "MATH 141",
+      "department": "Department of Mathematics and Statistics",
+      "university": "McGill University",
+      "position": "Teaching Assistant",
+      "semester": "Fall 2022, Winter 2023, Winter 2024"
+    },
+    {
+      "course_name": "Convex Optimization",
+      "course_number": "MATH 463/563",
+      "department": "Department of Mathematics and Statistics",
+      "university": "McGill University",
+      "position": "Graduate Course Assistant",
+      "semester": "Winter 2023, Winter 2024"
+    },
+    {
+      "course_name": "Linear Optimization",
+      "course_number": "MATH 417/517",
+      "department": "Department of Mathematics and Statistics",
+      "university": "McGill University",
+      "position": "Graduate Course Assistant",
+      "semester": "Fall 2022"
+    },
+    {
+      "course_name": "Optimization",
+      "course_number": "MATH 560",
+      "department": "Department of Mathematics and Statistics",
+      "university": "McGill University",
+      "position": "Undergraduate Course Assistant",
+      "semester": "Winter 2022"
+    }
+  ],
+  "service": [
+    {
+      "category": "Organization",
+      "role": "Co-organizer, Montreal RMT-OPT-ML Seminar",
+      "organization": "McGill University",
+      "date": "Fall 2023",
+      "url": "https://elliotpaquette.github.io/rmtmloptseminar.html"
+    },
+    {
+      "category": "Review",
+      "role": "Main Track Reviewer",
+      "organization": "Conference on Neural Information Processing Systems (NeurIPS)",
+      "date": "2026",
+      "url": "https://neurips.cc/"
+    },
+    {
+      "category": "Review",
+      "role": "High-dimensional Learning Dynamics (HiLD) Workshop",
+      "organization": "International Conference on Machine Learning (ICML)",
+      "date": "2023-2026",
+      "url": "https://sites.google.com/view/hidimlearning/home"
+    },
+    {
+      "category": "Review",
+      "role": "OPT Workshop on Optimization for Machine Learning",
+      "organization": "Conference on Neural Information Processing Systems (NeurIPS)",
+      "date": "2022-2026",
+      "url": "https://opt-ml.org/"
+    },
+    {
+      "category": "Volunteering",
+      "role": "OPT Workshop on Optimization for Machine Learning",
+      "organization": "Conference on Neural Information Processing Systems (NeurIPS)",
+      "date": "2020-2021",
+      "url": "https://opt-ml.org/"
+    }
+  ],
+  "work": [
+    {
+      "name": "Caisse de dépôt et placement du Québec (CDPQ)",
+      "location": "Montreal, QC",
+      "position": "Data Science Intern",
+      "url": "https://www.cdpq.com/en",
+      "date": "Summer 2024",
+      "highlights": [
+        "Part of the natural language processing (NLP) team",
+        "Conducted topic modeling and sentiment analysis on large-scale financial documents"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "First-Class Honours in Mathematics and Computer Science",
+      "date": "2022",
+      "awarder": "McGill University"
+    },
+    {
+      "title": "Undergraduate Student Research Award (USRA) & FRQNT Supplement",
+      "date": "2021",
+      "awarder": "NSERC & FRQNT",
+      "url": "https://www.nserc-crsng.gc.ca/students-etudiants/ug-pc/usra-brpc_eng.asp"
+    },
+    {
+      "title": "Major Entrance Scholarship in Science",
+      "date": "2018",
+      "awarder": "Hydro-Québec"
+    }
+  ]
+}
