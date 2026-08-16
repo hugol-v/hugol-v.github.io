@@ -1,45 +1,30 @@
 ---
 ---
-<article class="publication-entry{% unless site.enable_publication_thumbnails %} publication-entry--no-media{% endunless %}">
+{% assign entry_has_media = false %}
+{% unless page.presentation_bibliography %}
   {% if site.enable_publication_thumbnails %}
-    <div class="publication-media">
-      {%- if entry.abbr -%}
-        {%- if site.data.venues[entry.abbr] -%}
-          <abbr class="publication-venue">
-            {% if site.data.venues[entry.abbr].url %}
-              <a href="{{site.data.venues[entry.abbr].url}}">{{ entry.abbr }}</a>
-            {% else %}
-              <span>{{- entry.abbr -}}</span>
-            {% endif %}
-          </abbr>
-        {% else %}
-          <abbr class="publication-venue">{{ entry.abbr }}</abbr>
-        {% endif %}
-      {% endif %}
-      {% if entry.preview %}
-        {% capture preview_alt %}Preview image for {{ entry.title | strip_html }}{% endcapture %}
-        {% if entry.preview contains '://' %}
-          <img class="preview" src="{{ entry.preview }}" alt="{{ preview_alt | strip | escape }}">
-        {% else %}
-          {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
-          {%
-            include figure.liquid
-            loading="eager"
-            path=entry_path
-            sizes = "(min-width: 768px) 160px, (min-width: 576px) 28vw, 88vw"
-            class="preview"
-            zoomable=true
-            alt=preview_alt
-          %}
-        {% endif %}
-      {% endif %}
-    </div>
+    {% if entry.abbr or entry.preview %}
+      {% assign entry_has_media = true %}
+    {% endif %}
   {% endif %}
+{% endunless %}
+<article class="publication-entry{% if entry_has_media %} publication-entry--has-media{% if entry.preview %} publication-entry--has-preview{% endif %}{% else %} publication-entry--no-media{% endif %}{% if page.presentation_bibliography %} presentation-entry{% if entry.preview %} presentation-entry--has-preview{% endif %}{% endif %}">
 
   <!-- Entry bib key -->
   <div id="{{entry.key}}" class="publication-content">
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    {% if page.presentation_bibliography %}
+      <div class="presentation-entry-heading">
+        <div class="title">{{ entry.title }}</div>
+        {% unless entry.preview %}
+          {% if entry.presentationtype %}
+            <span class="presentation-type">{{ entry.presentationtype }}</span>
+          {% endif %}
+        {% endunless %}
+      </div>
+    {% else %}
+      <div class="title">{{ entry.title }}</div>
+    {% endif %}
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
@@ -250,6 +235,13 @@
           <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
         {% endif %}
       {% endif %}
+      {% if entry.notes %}
+        {% if entry.notes contains '://' %}
+          <a href="{{ entry.notes }}" class="btn btn-sm z-depth-0" role="button">Notes</a>
+        {% else %}
+          <a href="{{ entry.notes | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Notes</a>
+        {% endif %}
+      {% endif %}
       {% if entry.slides %}
         {% if entry.slides contains '://' %}
           <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
@@ -355,4 +347,64 @@
       </div>
     {% endif %}
   </div>
+  {% if entry_has_media %}
+    <aside class="publication-media" aria-label="Publication details">
+      {%- if entry.abbr -%}
+        {%- if site.data.venues[entry.abbr] -%}
+          <abbr class="publication-venue">
+            {% if site.data.venues[entry.abbr].url %}
+              <a href="{{site.data.venues[entry.abbr].url}}">{{ entry.abbr }}</a>
+            {% else %}
+              <span>{{- entry.abbr -}}</span>
+            {% endif %}
+          </abbr>
+        {% else %}
+          <abbr class="publication-venue">{{ entry.abbr }}</abbr>
+        {% endif %}
+      {% endif %}
+      {% if entry.preview %}
+        {% capture preview_alt %}Preview image for {{ entry.title | strip_html }}{% endcapture %}
+        {% if entry.preview contains '://' %}
+          <img class="preview" src="{{ entry.preview }}" alt="{{ preview_alt | strip | escape }}" loading="lazy">
+        {% else %}
+          {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
+          {%
+            include figure.liquid
+            loading="lazy"
+            path=entry_path
+            sizes="(min-width: 576px) 160px, 80vw"
+            class="preview"
+            zoomable=true
+            alt=preview_alt
+          %}
+        {% endif %}
+      {% endif %}
+    </aside>
+  {% endif %}
+  {% if page.presentation_bibliography %}
+    {% if entry.preview %}
+      <aside class="presentation-entry-aside" aria-label="Presentation preview">
+        {% if entry.presentationtype %}
+          <span class="presentation-type">{{ entry.presentationtype }}</span>
+        {% endif %}
+        <div class="presentation-preview">
+          {% capture presentation_preview_alt %}Preview image for {{ entry.title | strip_html }}{% endcapture %}
+          {% if entry.preview contains '://' %}
+            <img class="preview" src="{{ entry.preview }}" alt="{{ presentation_preview_alt | strip | escape }}" loading="lazy">
+          {% else %}
+            {% assign presentation_entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
+            {%
+              include figure.liquid
+              loading="lazy"
+              path=presentation_entry_path
+              sizes="(min-width: 576px) 160px, 80vw"
+              class="preview"
+              zoomable=true
+              alt=presentation_preview_alt
+            %}
+          {% endif %}
+        </div>
+      </aside>
+    {% endif %}
+  {% endif %}
 </article>

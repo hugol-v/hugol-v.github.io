@@ -1,12 +1,10 @@
 .publications {
-  --publication-accent-text: #{$white-color};
   --publication-muted-color: #5f6368;
 
   margin-top: 1.5rem;
 }
 
 html[data-theme="dark"] .publications {
-  --publication-accent-text: #{$grey-color-dark};
   --publication-muted-color: #b7bdc3;
 }
 
@@ -54,13 +52,106 @@ html[data-theme="dark"] .publications {
 
 .publication-entry {
   display: grid;
-  grid-template-columns: 10rem minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.35rem;
   align-items: start;
 }
 
 .publication-entry--no-media {
   grid-template-columns: minmax(0, 1fr);
+}
+
+.publication-entry--has-media {
+  grid-template-columns: minmax(0, 1fr) auto;
+
+  .publication-content {
+    grid-column: 1;
+  }
+
+  .publication-media {
+    grid-column: 2;
+    align-items: flex-end;
+  }
+
+  .publication-venue {
+    align-self: flex-end;
+  }
+}
+
+.publication-entry--has-preview {
+  grid-template-columns: minmax(0, 1fr) 10rem;
+}
+
+.presentation-entry {
+  .presentation-entry-heading {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .presentation-entry-heading .title {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .presentation-entry-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  .presentation-type {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    min-height: 1.7rem;
+    padding: 0.25rem 0.65rem;
+    color: var(--global-theme-color);
+    background-color: var(--global-code-bg-color);
+    border: 1px solid var(--global-theme-color);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .presentation-preview {
+    width: 100%;
+
+    figure,
+    picture {
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
+
+    .preview {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background-color: var(--global-code-bg-color);
+      border: 1px solid var(--global-divider-color);
+      border-radius: 0.65rem;
+    }
+  }
+}
+
+.presentation-entry--has-preview {
+  grid-template-columns: minmax(0, 1fr) 10rem;
+
+  .publication-content {
+    grid-column: 1;
+  }
+
+  .presentation-entry-aside {
+    grid-column: 2;
+  }
 }
 
 .publication-media {
@@ -93,15 +184,16 @@ html[data-theme="dark"] .publications {
   align-items: center;
   min-height: 1.7rem;
   padding: 0.25rem 0.6rem;
-  color: var(--publication-accent-text);
-  background-color: var(--global-theme-color);
+  color: var(--global-theme-color);
+  background-color: var(--global-code-bg-color);
+  border: 1px solid var(--global-theme-color);
   border-radius: 999px;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.025em;
   line-height: 1.2;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: none;
 
   a,
   span {
@@ -263,6 +355,46 @@ html[data-theme="dark"] .publications {
   opacity: 1;
 }
 
+@media (max-width: 767.98px) {
+  .publication-entry--has-media,
+  .presentation-entry--has-preview {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .publication-entry--has-media {
+    .publication-content {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .publication-media {
+      grid-column: 1;
+      grid-row: 1;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 15rem;
+    }
+
+    .publication-venue {
+      align-self: flex-start;
+    }
+  }
+
+  .presentation-entry--has-preview {
+    .publication-content {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .presentation-entry-aside {
+      grid-column: 1;
+      grid-row: 1;
+      max-width: 15rem;
+    }
+  }
+}
+
 @media (max-width: 575.98px) {
   .publications h2.bibliography {
     padding: 0.8rem 1rem;
@@ -283,6 +415,21 @@ html[data-theme="dark"] .publications {
 
   .publication-content .title {
     font-size: 1rem;
+  }
+
+  .presentation-entry {
+    .presentation-entry-heading {
+      flex-direction: column-reverse;
+      gap: 0.65rem;
+    }
+
+    .presentation-type {
+      align-self: flex-start;
+    }
+
+    .presentation-entry-aside {
+      align-items: flex-start;
+    }
   }
 }
 

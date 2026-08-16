@@ -4,6 +4,7 @@ title: presentations
 permalink: /presentations/
 description: Some of the research presentations that I gave.
 intro_panel: true
+presentation_bibliography: true
 nav: true
 nav_order: 4
 horizontal: false
