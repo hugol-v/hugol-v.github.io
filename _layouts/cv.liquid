@@ -99,16 +99,20 @@ layout: default
       </header>
       <div class="cv-entry-list">
         {% for item in resume.publications %}
-          <div class="cv-entry cv-entry-publication">
+          <div class="cv-entry cv-entry-publication" data-bib-key="{{ item.key }}">
             <div class="cv-entry-date"><time datetime="{{ item.releaseDate }}">{{ item.releaseDate }}</time></div>
             <div class="cv-entry-content">
               <h3>
-                <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
+                {% if item.url and item.url != '' %}
+                  <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
+                {% else %}
+                  {{ item.name }}
+                {% endif %}
               </h3>
               <p class="cv-entry-meta">{{ item.authors }}</p>
               <p class="cv-entry-note">
                 {{ item.publisher }}
-                {% if item.status %}<span class="cv-status">{{ item.status }}</span>{% endif %}
+                {% if item.status and item.status != '' %}<span class="cv-badge cv-status">{{ item.status }}</span>{% endif %}
               </p>
             </div>
           </div>
@@ -123,13 +127,25 @@ layout: default
       </header>
       <div class="cv-entry-list">
         {% for item in resume.presentations %}
-          <div class="cv-entry">
+          <div class="cv-entry cv-entry-presentation" data-bib-key="{{ item.key }}">
             <div class="cv-entry-date"><span>{{ item.date }}</span></div>
             <div class="cv-entry-content">
               <h3>{{ item.name }}</h3>
-              <p class="cv-entry-meta">{{ item.type }} <span aria-hidden="true">·</span> {{ item.venue }}</p>
-              {% if item.location and item.location != '' %}
-                <p class="cv-entry-note">{{ item.location }}</p>
+              <p class="cv-entry-meta">
+                {% if item.eventtitle and item.eventtitle != '' %}
+                  {{ item.eventtitle }}
+                {% elsif item.venue and item.venue != '' %}
+                  {{ item.venue }}
+                {% endif %}
+                {% if item.type and item.type != '' %}<span class="cv-badge cv-presentation-type">{{ item.type }}</span>{% endif %}
+              </p>
+              {%- capture presentation_place -%}
+                {%- if item.eventtitle and item.eventtitle != '' and item.venue and item.venue != '' -%}{{ item.venue }}{%- endif -%}
+                {%- if item.location and item.location != '' -%}{%- if item.eventtitle and item.eventtitle != '' and item.venue and item.venue != '' -%}, {% endif %}{{ item.location }}{%- endif -%}
+              {%- endcapture -%}
+              {% assign presentation_place = presentation_place | strip %}
+              {% if presentation_place != '' %}
+                <p class="cv-entry-note">{{ presentation_place }}</p>
               {% endif %}
             </div>
           </div>
@@ -161,24 +177,29 @@ layout: default
         <span class="cv-section-icon" aria-hidden="true"><i class="fa-solid fa-people-group"></i></span>
         <h2 id="service-title">Academic service</h2>
       </header>
-      <div class="cv-entry-list">
-        {% for item in resume.service %}
-          <div class="cv-entry">
-            <div class="cv-entry-date">
-              <span>{{ item.date }}</span>
-              <small>{{ item.category }}</small>
-            </div>
-            <div class="cv-entry-content">
-              <h3>
-                {% if item.url and item.url != '' %}
-                  <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.role }}</a>
-                {% else %}
-                  {{ item.role }}
-                {% endif %}
-              </h3>
-              <p class="cv-entry-meta">{{ item.organization }}</p>
-            </div>
-          </div>
+      <div class="cv-entry-list cv-service-groups">
+        {% assign service_groups = resume.service | group_by: 'subsection' %}
+        {% for service_group in service_groups %}
+          <section class="cv-service-group" aria-labelledby="service-subsection-{{ service_group.name | slugify }}-{{ forloop.index }}">
+            <h3 class="cv-service-subsection" id="service-subsection-{{ service_group.name | slugify }}-{{ forloop.index }}">
+              <span>{{ service_group.name }}</span>
+            </h3>
+            {% for item in service_group.items %}
+              <div class="cv-entry">
+                <div class="cv-entry-date"><span>{{ item.date }}</span></div>
+                <div class="cv-entry-content">
+                  <h4>
+                    {% if item.url and item.url != '' %}
+                      <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.role }}</a>
+                    {% else %}
+                      {{ item.role }}
+                    {% endif %}
+                  </h4>
+                  <p class="cv-entry-meta">{{ item.organization }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </section>
         {% endfor %}
       </div>
     </section>

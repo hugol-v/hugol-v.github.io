@@ -280,6 +280,45 @@ html[data-theme="dark"] .cv-page {
   }
 }
 
+.cv-service-group + .cv-service-group {
+  border-top: 1px solid var(--global-divider-color);
+}
+
+.cv-service-subsection {
+  display: grid;
+  grid-template-columns: 7.6rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: center;
+  margin: 0;
+  padding: 0.75rem 1.25rem 0;
+  color: var(--cv-muted-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+
+  span {
+    display: flex;
+    grid-column: 2;
+    gap: 0.65rem;
+    align-items: center;
+    color: inherit;
+    white-space: nowrap;
+
+    &::after {
+      flex: 1 1 auto;
+      height: 1px;
+      background-color: var(--global-divider-color);
+      content: "";
+    }
+  }
+
+  + .cv-entry {
+    padding-top: 0.85rem;
+  }
+}
+
 .cv-entry-date {
   padding-top: 0.12rem;
   color: var(--global-theme-color);
@@ -308,14 +347,16 @@ html[data-theme="dark"] .cv-page {
 .cv-entry-content {
   min-width: 0;
 
-  h3 {
+  h3,
+  h4 {
     margin: 0;
     font-size: 1.02rem;
     font-weight: 650;
     line-height: 1.4;
   }
 
-  h3 a {
+  h3 a,
+  h4 a {
     color: var(--global-text-color);
     text-decoration-color: transparent;
     text-decoration-thickness: 1px;
@@ -358,7 +399,7 @@ html[data-theme="dark"] .cv-page {
   }
 }
 
-.cv-status,
+.cv-badge,
 .cv-course-number {
   display: inline-block;
   color: var(--global-theme-color);
@@ -370,10 +411,14 @@ html[data-theme="dark"] .cv-page {
   line-height: 1.25;
 }
 
-.cv-status {
-  margin-left: 0.35rem;
+.cv-badge {
   padding: 0.18rem 0.45rem;
   vertical-align: 0.08em;
+}
+
+.cv-status,
+.cv-presentation-type {
+  margin-left: 0.35rem;
 }
 
 .cv-course-number {
@@ -439,7 +484,22 @@ html[data-theme="dark"] .cv-page {
     }
   }
 
-  .cv-status {
+  .cv-service-subsection {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0.65rem 1rem 0;
+
+    span {
+      grid-column: 1;
+    }
+
+    + .cv-entry {
+      padding-top: 0.75rem;
+    }
+  }
+
+  .cv-status,
+  .cv-presentation-type {
     display: table;
     margin: 0.4rem 0 0;
   }

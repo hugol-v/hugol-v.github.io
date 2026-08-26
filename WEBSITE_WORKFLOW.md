@@ -31,6 +31,16 @@ bundle exec jekyll serve
 
 Open `http://localhost:4000` and review the affected pages in both light and dark modes and at narrow and wide window sizes. Stop the server with `Ctrl+C` when finished.
 
+### CV content sources
+
+The web CV is assembled from two sources during every Jekyll build:
+
+- Add publications and preprints to `_bibliography/papers.bib`. They appear on both the Publications page and the web CV. Use `status={Preprint}`, `status={Submitted}`, or `status={Published}` for the CV badge. An entry is included by default; add `cv_show={false}` to omit it from the CV.
+- Add talks and posters to `_bibliography/presentations.bib`. Use `presentationtype`, `eventtitle`, `venue`, and `location` as separate fields. They appear on both the Presentations page and the web CV.
+- Keep education, teaching, service, experience, awards, and personal details in `assets/json/resume.json`. Every academic-service record must have a `subsection` such as `Organization`, `Review`, or `Volunteering`; any new value, such as `Editor`, automatically becomes another service heading.
+
+Publications and presentations are sorted newest first automatically, so they should not also be copied into `resume.json`. The downloadable PDF remains a separate file until the PDF-generation phase is added.
+
 ### 3. Save work without publishing
 
 Commit the changes to `source` and push them. This saves the work remotely but does not update the public website.
