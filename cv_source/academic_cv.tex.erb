@@ -1,0 +1,88 @@
+\documentclass[12pt]{moderncv}
+\moderncvtheme[black]{banking}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{changepage}
+\usepackage{url}
+\usepackage{ifthen}
+\usepackage[scale=0.80, top=2.7cm, bottom=2.7cm]{geometry}
+\recomputelengths
+
+\name{<%= tex(@first_name) %>}{<%= tex(@last_name) %>}
+\address{<%= tex(@affiliation_lines[0]) %>}{<%= tex(@affiliation_lines[1]) %>}{<%= tex(@location) %>}
+\email{<%= tex(@basics.fetch("email")) %>}
+\homepage{<%= tex(@homepage) %>}
+
+\begin{document}
+\maketitle
+
+\vspace{-2em}
+\section{Education}
+<% @resume.fetch("education").each do |item| -%>
+<% date = tex_date(item.fetch("date")) -%>
+<% date = "#{date} (#{tex(item['expected'])})" unless item.fetch("expected", "").empty? -%>
+\cventry{}{<%= tex([item.fetch("institution"), item.fetch("location", "")].reject(&:empty?).join(", ")) %>}{<%= tex(item.fetch("studyType")) %>}{<%= date %>}{}<%= itemize(item.fetch("details", [])) %>
+
+<% end -%>
+\section{Research Interests}
+
+\cvitem{}{<%= interests_sentence %>}
+
+\section{Publications \& Preprints}
+
+\renewcommand{\labelenumi}{[\arabic{enumi}]}
+
+\begin{enumerate}
+<% @resume.fetch("publications").each_with_index do |publication, index| -%>
+    \item <%= publication_item(publication) %>
+<% unless index == @resume.fetch("publications").length - 1 -%>
+
+    \vspace{0.4em}
+<% end -%>
+<% end -%>
+\end{enumerate}
+
+\section{Talks \& Presentations}
+
+\begin{itemize}
+<% @resume.fetch("presentations").each_with_index do |presentation, index| -%>
+    \item <%= presentation_item(presentation) %>
+<% unless index == @resume.fetch("presentations").length - 1 -%>
+
+    \vspace{0.4em}
+<% end -%>
+<% end -%>
+\end{itemize}
+
+\section{Teaching Experience}
+
+<% @resume.fetch("teaching").each do |item| -%>
+\cventry{}{<%= tex([item.fetch("department"), item.fetch("university")].join(", ")) %>}{<%= tex("#{item.fetch('position')} for #{item.fetch('course_number')} -- #{item.fetch('course_name')}") %>}{<%= compact_semester(item.fetch("semester")) %>}{}{}
+<% end -%>
+
+\vspace{0.2em}
+{\small \textit{*Note: W = Winter, S = Spring, F = Fall}}
+
+\section{Academic Service}
+<% service_groups.each do |subsection, items| -%>
+
+\subsection{<%= tex(subsection) %>}
+<% items.each do |item| -%>
+\cventry{}{<%= tex(item.fetch("organization")) %>}{<%= tex(item.fetch("role")) %>}{<%= tex_date(item.fetch("date")) %>}{}{}
+<% end -%>
+<% end -%>
+
+\section{Work Experience}
+
+<% @resume.fetch("work").each do |item| -%>
+\cventry{}{<%= tex([item.fetch("name"), item.fetch("location", "")].reject(&:empty?).join(", ")) %>}{<%= tex(item.fetch("position")) %>}{<%= tex_date(item.fetch("date")) %>}{}<%= itemize(item.fetch("highlights", [])) %>
+<% end -%>
+
+\section{Awards and Scholarships}
+<% @resume.fetch("awards").each do |item| -%>
+\cventry{}{<%= tex(item.fetch("awarder")) %>}{<%= tex(item.fetch("title")) %>}{<%= tex_date(item.fetch("date")) %>}{}{}
+<% end -%>
+
+\end{document}

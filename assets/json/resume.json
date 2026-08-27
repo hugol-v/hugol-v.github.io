@@ -4,8 +4,12 @@
   },
   "basics": {
     "name": "Hugo Latourelle-Vigeant",
+    "firstName": "Hugo",
+    "lastName": "Latourelle-Vigeant",
     "label": "Ph.D. student in Statistics and Data Science",
     "affiliation": "Department of Statistics and Data Science, Yale University",
+    "department": "Department of Statistics and Data Science",
+    "institution": "Yale University",
     "email": "hugo.latourelle-vigeant@yale.edu",
     "url": "https://hugol-v.github.io",
     "summary": "My research focuses on random matrix theory, machine learning theory, statistical-computational trade-offs, and high-dimensional probability.",

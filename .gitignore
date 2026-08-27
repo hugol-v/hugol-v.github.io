@@ -10,3 +10,10 @@ Gemfile.lock
 assets/libs/
 node_modules/
 vendor
+tmp/
+cv_source/*.aux
+cv_source/*.fdb_latexmk
+cv_source/*.fls
+cv_source/*.log
+cv_source/*.out
+cv_source/*.pdf

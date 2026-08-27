@@ -38,9 +38,33 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install --yes imagemagick
+          sudo apt-get install --yes imagemagick poppler-utils
           python -m pip install --upgrade pip
           python -m pip install jupyter
+
+      - name: Generate academic CV source
+        run: bundle exec ruby scripts/generate_cv.rb --tex-only
+
+      - name: Compile academic CV
+        uses: xu-cheng/latex-action@4.1.0
+        with:
+          root_file: cv_source/academic_cv.tex
+          texlive_version: 2026
+
+      - name: Install generated academic CV
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp cv_source/academic_cv.pdf assets/pdf/academic_cv.pdf
+          test -s assets/pdf/academic_cv.pdf
+          mkdir -p tmp
+          pdfinfo assets/pdf/academic_cv.pdf | tee tmp/academic_cv_pdfinfo.txt
+          grep -Eq '^Page size:.*\(A4\)$' tmp/academic_cv_pdfinfo.txt
+          pdftotext assets/pdf/academic_cv.pdf tmp/academic_cv.txt
+          grep -Fq 'Publications & Preprints' tmp/academic_cv.txt
+          grep -Fq 'Talks & Presentations' tmp/academic_cv.txt
+          grep -Fq 'Academic Service' tmp/academic_cv.txt
+          grep -Fq 'Awards and Scholarships' tmp/academic_cv.txt
 
       - name: Build production site
         run: bundle exec jekyll build --lsi --trace

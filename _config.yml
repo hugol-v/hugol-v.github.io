@@ -212,9 +212,13 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
+  - cv_source/
+  - lib/
   - lighthouse_results/
   - purgecss.config.js
   - README.md
+  - scripts/
+  - tmp/
   - vendor
 keep_files:
   - CNAME
