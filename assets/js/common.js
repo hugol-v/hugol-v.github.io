@@ -21,6 +21,29 @@ $(document).ready(function () {
   togglePublicationDetail(".links button.award", ".award.publication-detail");
   togglePublicationDetail(".links button.bibtex", ".bibtex.publication-detail");
   togglePublicationDetail(".links button.video-toggle", ".video.publication-detail");
+
+  $(".author-list-expand").click(function () {
+    const button = $(this);
+    const summary = button.closest(".author-list-summary");
+    const additionalAuthors = summary.next(".additional-authors");
+
+    button.attr("aria-expanded", "true");
+    summary.prop("hidden", true);
+    additionalAuthors.prop("hidden", false).attr("aria-hidden", "false");
+    additionalAuthors.find(".author-list-collapse").trigger("focus");
+  });
+
+  $(".author-list-collapse").click(function () {
+    const button = $(this);
+    const additionalAuthors = button.closest(".additional-authors");
+    const summary = additionalAuthors.prev(".author-list-summary");
+    const expandButton = summary.find(".author-list-expand");
+
+    additionalAuthors.prop("hidden", true).attr("aria-hidden", "true");
+    summary.prop("hidden", false);
+    expandButton.attr("aria-expanded", "false").trigger("focus");
+  });
+
   $("a").removeClass("waves-effect waves-light");
 
   // bootstrap-toc

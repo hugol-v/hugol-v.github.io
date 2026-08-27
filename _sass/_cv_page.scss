@@ -280,6 +280,33 @@ html[data-theme="dark"] .cv-page {
   }
 }
 
+.cv-service-groups {
+  padding-bottom: 0.25rem;
+}
+
+.cv-service-group + .cv-service-group {
+  border-top: 3px double var(--global-divider-color);
+}
+
+.cv-service-subsection {
+  margin: 0;
+  padding: 0.85rem 1.25rem 0.15rem;
+  color: var(--global-text-color);
+  font-size: 0.92rem;
+  font-weight: 650;
+  letter-spacing: -0.005em;
+  line-height: 1.35;
+
+  span {
+    display: block;
+    color: inherit;
+  }
+
+  + .cv-entry {
+    padding-top: 0.7rem;
+  }
+}
+
 .cv-entry-date {
   padding-top: 0.12rem;
   color: var(--global-theme-color);
@@ -308,14 +335,16 @@ html[data-theme="dark"] .cv-page {
 .cv-entry-content {
   min-width: 0;
 
-  h3 {
+  h3,
+  h4 {
     margin: 0;
     font-size: 1.02rem;
     font-weight: 650;
     line-height: 1.4;
   }
 
-  h3 a {
+  h3 a,
+  h4 a {
     color: var(--global-text-color);
     text-decoration-color: transparent;
     text-decoration-thickness: 1px;
@@ -358,7 +387,7 @@ html[data-theme="dark"] .cv-page {
   }
 }
 
-.cv-status,
+.cv-badge,
 .cv-course-number {
   display: inline-block;
   color: var(--global-theme-color);
@@ -370,10 +399,14 @@ html[data-theme="dark"] .cv-page {
   line-height: 1.25;
 }
 
-.cv-status {
-  margin-left: 0.35rem;
+.cv-badge {
   padding: 0.18rem 0.45rem;
   vertical-align: 0.08em;
+}
+
+.cv-status,
+.cv-presentation-type {
+  margin-left: 0.35rem;
 }
 
 .cv-course-number {
@@ -439,7 +472,16 @@ html[data-theme="dark"] .cv-page {
     }
   }
 
-  .cv-status {
+  .cv-service-subsection {
+    padding: 0.75rem 1rem 0.1rem;
+
+    + .cv-entry {
+      padding-top: 0.65rem;
+    }
+  }
+
+  .cv-status,
+  .cv-presentation-type {
     display: table;
     margin: 0.4rem 0 0;
   }

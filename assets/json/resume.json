@@ -4,8 +4,12 @@
   },
   "basics": {
     "name": "Hugo Latourelle-Vigeant",
+    "firstName": "Hugo",
+    "lastName": "Latourelle-Vigeant",
     "label": "Ph.D. student in Statistics and Data Science",
     "affiliation": "Department of Statistics and Data Science, Yale University",
+    "department": "Department of Statistics and Data Science",
+    "institution": "Yale University",
     "email": "hugo.latourelle-vigeant@yale.edu",
     "url": "https://hugol-v.github.io",
     "summary": "My research focuses on random matrix theory, machine learning theory, statistical-computational trade-offs, and high-dimensional probability.",
@@ -51,61 +55,6 @@
       "studyType": "B.Sc. Joint Honours in Mathematics and Computer Science",
       "date": "2018-2022",
       "details": []
-    }
-  ],
-  "publications": [
-    {
-      "name": "Statistical-Computational Trade-offs in Learning Multi-Index Models via Harmonic Analysis",
-      "publisher": "arXiv preprint arXiv:2602.09959",
-      "releaseDate": "2026",
-      "authors": "Hugo Latourelle-Vigeant and Theodor Misiakiewicz",
-      "url": "https://arxiv.org/abs/2602.09959",
-      "status": "Submitted"
-    },
-    {
-      "name": "Dyson Equation for Correlated Linearizations and Test Error of Random Features Regression",
-      "publisher": "Random Matrices: Theory and Applications, 15(01), 2550026",
-      "releaseDate": "2026",
-      "authors": "Hugo Latourelle-Vigeant and Elliot Paquette",
-      "url": "https://doi.org/10.1142/S2010326325500261",
-      "status": "Published"
-    }
-  ],
-  "presentations": [
-    {
-      "name": "Generalization, Memorization, and Overfitting in Kernel Denoising Score Matching in High Dimensions",
-      "date": "August 2026",
-      "type": "Poster presentation",
-      "venue": "Princeton Machine Learning Theory Summer School",
-      "location": "Princeton University, Princeton, NJ"
-    },
-    {
-      "name": "Introduction to the Matrix Dyson Equation",
-      "date": "March 2024",
-      "type": "Talk",
-      "venue": "ETH Zurich",
-      "location": ""
-    },
-    {
-      "name": "Matrix Dyson Equation for Correlated Linearizations",
-      "date": "December 2023",
-      "type": "Workshop talk",
-      "venue": "The many facets of random matrix theory workshop, 2023 Canadian Mathematical Society Winter Meeting",
-      "location": "Montreal, QC"
-    },
-    {
-      "name": "Matrix Dyson Equation for Correlated Linearizations",
-      "date": "September 2023",
-      "type": "Seminar talk",
-      "venue": "Seminar in Machine Learning, Optimization and Random Matrix Theory, McGill University",
-      "location": "Montreal, QC"
-    },
-    {
-      "name": "GD and Large Linear Regression: Concentration and Asymptotics for a Spiked Model",
-      "date": "August 2021",
-      "type": "Conference talk",
-      "venue": "4th Undergraduate Student Research Conference, McGill University",
-      "location": "Montreal, QC"
     }
   ],
   "teaching": [
@@ -168,35 +117,35 @@
   ],
   "service": [
     {
-      "category": "Organization",
+      "subsection": "Organization",
       "role": "Co-organizer, Montreal RMT-OPT-ML Seminar",
       "organization": "McGill University",
       "date": "Fall 2023",
       "url": "https://elliotpaquette.github.io/rmtmloptseminar.html"
     },
     {
-      "category": "Review",
+      "subsection": "Review",
       "role": "Main Track Reviewer",
       "organization": "Conference on Neural Information Processing Systems (NeurIPS)",
       "date": "2026",
       "url": "https://neurips.cc/"
     },
     {
-      "category": "Review",
+      "subsection": "Review",
       "role": "High-dimensional Learning Dynamics (HiLD) Workshop",
       "organization": "International Conference on Machine Learning (ICML)",
       "date": "2023-2026",
       "url": "https://sites.google.com/view/hidimlearning/home"
     },
     {
-      "category": "Review",
+      "subsection": "Review",
       "role": "OPT Workshop on Optimization for Machine Learning",
       "organization": "Conference on Neural Information Processing Systems (NeurIPS)",
       "date": "2022-2026",
       "url": "https://opt-ml.org/"
     },
     {
-      "category": "Volunteering",
+      "subsection": "Volunteering",
       "role": "OPT Workshop on Optimization for Machine Learning",
       "organization": "Conference on Neural Information Processing Systems (NeurIPS)",
       "date": "2020-2021",

@@ -26,10 +26,31 @@ git pull --ff-only origin source
 Make changes on `source`, then start the local preview from the repository directory:
 
 ```sh
+bundle exec ruby scripts/generate_cv.rb
 bundle exec jekyll serve
 ```
 
 Open `http://localhost:4000` and review the affected pages in both light and dark modes and at narrow and wide window sizes. Stop the server with `Ctrl+C` when finished.
+
+### CV content sources
+
+The web CV and downloadable PDF are assembled from the same sources during every production build:
+
+- Add publications and preprints to `_bibliography/papers.bib`. They appear on both the Publications page and the web CV. Use `status={Preprint}` or `status={Published}` for the CV badge. An entry is included by default; add `cv_show={false}` to omit it from the CV.
+- Add talks and posters to `_bibliography/presentations.bib`. Use `presentationtype`, `eventtitle`, `venue`, and `location` as separate fields. They appear on both the Presentations page and the web CV.
+- Keep education, teaching, service, experience, awards, and personal details in `assets/json/resume.json`. Every academic-service record must have a `subsection` such as `Organization`, `Review`, or `Volunteering`; any new value, such as `Editor`, automatically becomes another service heading.
+
+Normal BibTeX titles are escaped safely for the PDF. If a publication or presentation title needs intentional LaTeX markup such as math, keep the regular `title` for the website and add a PDF-only `cv_title_tex` field.
+
+Publications and presentations are sorted newest first automatically, so they should not also be copied into `resume.json`. The PDF layout lives in `cv_source/academic_cv.tex.erb`; the generated, comment-free LaTeX source is `cv_source/academic_cv.tex`, and the finished file replaces `assets/pdf/academic_cv.pdf`, which is already the CV page's download target. The download card's update month is set from the Jekyll build time.
+
+To regenerate both files locally after editing either bibliography or `resume.json`, run:
+
+```sh
+bundle exec ruby scripts/generate_cv.rb
+```
+
+A local LaTeX installation with `latexmk` and `moderncv` is required for PDF compilation. Use `--tex-only` to update only the generated LaTeX source. On every pull request and production deployment, GitHub Actions regenerates the source, compiles the PDF, verifies it, and then builds the site.
 
 ### 3. Save work without publishing
 
