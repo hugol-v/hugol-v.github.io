@@ -50,6 +50,7 @@ jobs:
         with:
           root_file: cv_source/academic_cv.tex
           texlive_version: 2026
+          work_in_root_file_dir: true
 
       - name: Install generated academic CV
         shell: bash
