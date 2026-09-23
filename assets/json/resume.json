@@ -125,10 +125,17 @@
     },
     {
       "subsection": "Review",
+      "role": "Workshop on Principles of Generative Modeling (PriGM)",
+      "organization": "Conference on Neural Information Processing Systems (NeurIPS)",
+      "date": "2026",
+      "url": "https://example.org"
+    },
+    {
+      "subsection": "Review",
       "role": "Main Track Reviewer",
       "organization": "Conference on Neural Information Processing Systems (NeurIPS)",
       "date": "2026",
-      "url": "https://neurips.cc/"
+      "url": "https://sites.google.com/view/prigmneurips2026/home"
     },
     {
       "subsection": "Review",

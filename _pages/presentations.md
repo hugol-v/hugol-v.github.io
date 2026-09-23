@@ -8,6 +8,9 @@ presentation_bibliography: true
 nav: true
 nav_order: 4
 horizontal: false
+scholar:
+  sort_by: [year, month]
+  order: descending
 ---
 
 <!-- _pages/presentations.md -->
