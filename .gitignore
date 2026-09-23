@@ -17,3 +17,4 @@ cv_source/*.fls
 cv_source/*.log
 cv_source/*.out
 cv_source/*.pdf
+*.synctex.gz
